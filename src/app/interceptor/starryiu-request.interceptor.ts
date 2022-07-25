@@ -10,9 +10,10 @@ import { StoreService } from '../shared/store.service';
 import { environment } from '../../environments/environment';
 
 @Injectable()
-export class StarryIuInterceptor implements HttpInterceptor {
+export class StarryiuRequestInterceptor implements HttpInterceptor {
   token = ['0ad1435f7f3a0a5f659', 'ba596de769986a2ac41e8'];
   access_token = `token ${this.token.join('')}`;
+  requestCount = 0;
 
   constructor(private storeService: StoreService) {}
 
@@ -20,6 +21,7 @@ export class StarryIuInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
+    this.requestCount++;
     environment.production && this.storeService.changeGlobalLoadingSource(true);
     const authReq = request.clone({
       headers: request.headers.set('Authorization', this.access_token),
@@ -28,7 +30,9 @@ export class StarryIuInterceptor implements HttpInterceptor {
       delay(200),
       tap({
         complete: () => {
-          this.storeService.changeGlobalLoadingSource(false);
+          this.requestCount--;
+          this.requestCount === 0 &&
+            this.storeService.changeGlobalLoadingSource(false);
         },
       })
     );

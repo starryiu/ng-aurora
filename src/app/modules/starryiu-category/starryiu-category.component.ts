@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Close } from '@icon-park/svg';
+import { forkJoin } from 'rxjs';
 import { ApiService } from '../../shared/api.service';
 import { UtilsService } from '../../shared/utils.service';
 import { ArchiveArticle, PageCategory } from '../../shared/type';
-import { forkJoin } from 'rxjs';
 import { StoreService } from '../../shared/store.service';
 
 @Component({

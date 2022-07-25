@@ -30,15 +30,14 @@ import { StarryiuPanelComponent } from './components/starryiu-panel/starryiu-pan
 import { StarryiuCoverComponent } from './components/starryiu-cover/starryiu-cover.component';
 import { ArchiveCardComponent } from './components/archive-card/archive-card.component';
 import { GolbalLoadComponent } from './shared/components/golbal-load/golbal-load.component';
+import { StarryiuContentComponent } from './shared/components/starryiu-content/starryiu-content.component';
 
 import { TimeagoPipe } from './pipes/timeago.pipe';
 import { PixivFormatPipe } from './pipes/pixiv-format.pipe';
 import { MarkedPipe } from './pipes/marked.pipe';
 import { IsEmptyPipe } from './pipes/is-empty.pipe';
 
-import { StarryIuInterceptor } from './interceptor/starry-iu.interceptor';
-import { StarryiuContentComponent } from './shared/components/starryiu-content/starryiu-content.component';
-
+import { StarryiuRequestInterceptor } from './interceptor/starryiu-request.interceptor';
 @NgModule({
   declarations: [
     TimeagoPipe,
@@ -81,7 +80,7 @@ import { StarryiuContentComponent } from './shared/components/starryiu-content/s
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: StarryIuInterceptor,
+      useClass: StarryiuRequestInterceptor,
       multi: true,
     },
   ],
