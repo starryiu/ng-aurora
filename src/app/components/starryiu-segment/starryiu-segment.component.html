@@ -1,0 +1,18 @@
+<div
+  [ngStyle]="{ 'border-color': color }"
+  class="code-card mb-6 relative bg-white shadow-card bg-opacity-75 p-4 pb-6 pt-16 text-sm leading-6 rounded border-t-2 transition duration-300 hover:shadow-card-hover hover:-translate-y-1"
+>
+  <div
+    [ngStyle]="{ 'background-color': color }"
+    class="date inline-block absolute -left-8 top-5 text-white text-opacity-100 opacity-75 pr-3 py-1 pl-8 rounded-r"
+  >
+    <div
+      [ngStyle]="{
+        'border-color': color + ' ' + color + ' transparent transparent'
+      }"
+      class="absolute left-0 w-0 h-0 top-8 border-8 border-opacity-60 opacity-60"
+    ></div>
+    {{ title }}
+  </div>
+  <div [innerHTML]="body | marked"></div>
+</div>

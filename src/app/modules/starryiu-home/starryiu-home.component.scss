@@ -1,0 +1,18 @@
+.pixiv {
+  font-size: 13px;
+}
+
+span {
+  @apply inline-flex items-center;
+}
+
+.svg {
+  @apply w-4 inline mr-0.5;
+}
+
+.article-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}

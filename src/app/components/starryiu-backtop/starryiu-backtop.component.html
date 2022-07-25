@@ -1,0 +1,8 @@
+<img
+  *ngIf="type === 'PC'"
+  class="backTopImg fixed right-10 z-10 cursor-custom-link transition-all duration-500 object-cover"
+  [ngClass]="scrollTop > 900 ? 'active' : ''"
+  (click)="backTop()"
+  src="https://fastly.jsdelivr.net/gh/chanshiyucx/yoi/blog/back-top.png"
+  alt="backTop"
+/>

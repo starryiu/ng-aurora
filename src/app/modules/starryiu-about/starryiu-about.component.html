@@ -1,0 +1,37 @@
+<app-starryiu-content>
+  <app-starryiu-quote></app-starryiu-quote>
+  <div class="p-4">
+    <div class="flex p-4">
+      <img
+        class="w-24 h-24 border-4 shadow-md border-white border-opacity-40 rounded-full"
+        src="https://fastly.jsdelivr.net/gh/starryiu/PicGo-jsDelivr/PicGo/9e8fac15152ec6c1a6caace803203dd3.jpg"
+        alt=""
+      />
+      <div class="text-sm flex items-center ml-4">
+        <div class="space-y-1">
+          <div class="flex items-center">
+            <span [innerHTML]="catIcon" class="mr-1"></span>
+            STARRYIU
+          </div>
+          <div class="flex items-center">
+            <span [innerHTML]="sleavesIcon" class="mr-1"></span>
+            世界充满了魔法与方块
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-starryiu-segment
+      *ngFor="let data of about"
+      [body]="data.content"
+      [title]="data.title"
+    ></app-starryiu-segment>
+    <div class="flex justify-center py-2">
+      <img
+        class="pointer-events-none select-none"
+        *ngFor="let image of countImages"
+        [src]="image"
+        alt=""
+      />
+    </div>
+  </div>
+</app-starryiu-content>

@@ -1,0 +1,15 @@
+<div class="main-layout relative z-10 w-full">
+  <app-golbal-load></app-golbal-load>
+  <app-starryiu-header></app-starryiu-header>
+  <div class="px-4">
+    <div
+      class="w-876px s-md:w-full mx-auto"
+      [@routeAnimations]="getRouteAnimationData()"
+    >
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <app-starryiu-panel></app-starryiu-panel>
+  <app-starryiu-backtop></app-starryiu-backtop>
+  <app-starryiu-player></app-starryiu-player>
+</div>

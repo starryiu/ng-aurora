@@ -1,0 +1,17 @@
+<app-starryiu-content>
+  <app-starryiu-quote></app-starryiu-quote>
+  <div class="p-4" *ngIf="essay.length > 0">
+    <app-starryiu-segment
+      *ngFor="let data of essay"
+      [body]="data.body"
+      [title]="data.created_at | date: 'y年M月d日'"
+    ></app-starryiu-segment>
+    <app-starryiu-pagination
+      *ngIf="pageTotal"
+      [pageIndex]="pageIndex"
+      [pageTotal]="pageTotal"
+      [pageLoading]="pageLoading"
+      (pageIndexChange)="changePage($event)"
+    ></app-starryiu-pagination>
+  </div>
+</app-starryiu-content>

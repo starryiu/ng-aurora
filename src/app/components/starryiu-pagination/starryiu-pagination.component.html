@@ -1,0 +1,32 @@
+<div class="w-full h-20 flex justify-center items-center" *ngIf="pages > 1">
+  <div class="pagination cursor-custom-link group relative z-10">
+    <div
+      class="pagination-before absolute left-0 top-0 bg-purple-light w-0 h-full z-0 transition-all duration-300 group-hover:w-full"
+    ></div>
+    <div
+      class="previous relative z-10 w-full h-full flex justify-center items-center"
+    >
+      <div
+        class="btn w-full h-full cursor text-purple-light transition-all duration-300 group-hover:text-white"
+      >
+        <div class="flex h-full">
+          <span
+            *ngIf="pageIndex > 1"
+            (click)="prev()"
+            class="flex-1 h-full flex justify-center items-center transition duration-300 hover:bg-purple-dark"
+          >
+            Prev
+          </span>
+          <span
+            *ngIf="pageIndex < pages"
+            (click)="next()"
+            class="flex-1 h-full flex justify-center items-center transition duration-300 hover:bg-purple-dark"
+          >
+            Next
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="rect group-hover:border-s-purple"></div>
+  </div>
+</div>

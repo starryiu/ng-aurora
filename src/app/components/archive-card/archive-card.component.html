@@ -1,0 +1,29 @@
+<div
+  [ngStyle]="{ 'border-color': color }"
+  class="w-full cursor-custom-link mt-4 shadow-md transition duration-300 border-t-2 rounded bg-white hover:shadow-xl hover:-translate-y-1"
+>
+  <a
+    [routerLink]="['/post', archiveArticle.number]"
+    class="inline-flex flex-col w-full"
+  >
+    <div class="text-lg px-3 py-4">{{ archiveArticle.title }}</div>
+    <div class="text-sm px-3 py-3 border-t border-gray-200 space-x-3 flex">
+      <span>
+        <span class="svg" [innerHTML]="calendarIcon"></span>
+        {{ archiveArticle.created_at | timeago }}
+      </span>
+      <span>
+        <span class="svg" [innerHTML]="fireIcon"></span>
+        热度73℃
+      </span>
+      <span>
+        <span class="svg" [innerHTML]="bookmarkIcon"></span>
+        {{ archiveArticle.milestone.title || "未分类" }}
+      </span>
+      <span>
+        <span class="svg" [innerHTML]="bookmarkOneIcon"></span>
+        {{ archiveArticle.labels[0]?.name || "无标签" }}
+      </span>
+    </div>
+  </a>
+</div>

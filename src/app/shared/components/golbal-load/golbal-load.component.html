@@ -1,0 +1,9 @@
+<div
+  *ngIf="loading"
+  class="fixed z-50 w-full h-screen bg-white bg-opacity-60 flex justify-center items-center"
+>
+  <span
+    [innerHTML]="loadingIcon"
+    class="animate-spin-slow text-purple text-2xl"
+  ></span>
+</div>

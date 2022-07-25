@@ -1,0 +1,41 @@
+<app-starryiu-content>
+  <div *ngIf="article | isEmpty" class="relative">
+    <div class="overflow-hidden relative">
+      <img
+        src="https://fastly.jsdelivr.net/gh/chanshiyucx/yoi/bg/defaultCover.jpg"
+        alt=""
+      />
+      <img
+        class="w-full h-full absolute left-0 top-0 transition-transform duration-1000 object-cover hover:scale-105"
+        [src]="article.info.src"
+        alt=""
+      />
+      <div
+        class="backdrop-blur bg-white absolute bg-opacity-80 h-20 left-0 w-full bottom-0 text-xl px-3 py-2 space-y-0.5 flex flex-col justify-around"
+      >
+        <div>{{ article.title }}</div>
+        <div class="text-sm space-x-3 flex">
+          <span>
+            <span class="svg" [innerHTML]="calendarIcon"></span>
+            {{ article.created_at | timeago }}
+          </span>
+          <span>
+            <span class="svg" [innerHTML]="fireIcon"></span>
+            热度73℃
+          </span>
+          <span>
+            <span class="svg" [innerHTML]="bookmarkIcon"></span>
+            {{ article.milestone.title || "未分类" }}
+          </span>
+          <span>
+            <span class="svg" [innerHTML]="bookmarkOneIcon"></span>
+            {{ article.labels[0]?.name || "无标签" }}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="p-6 code-card">
+      <div [innerHTML]="article.body | marked"></div>
+    </div>
+  </div>
+</app-starryiu-content>

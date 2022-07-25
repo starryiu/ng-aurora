@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "~swiper/css";
+@import "~swiper/css/effect-fade";
+
+@import "./assets/font/font.scss";
+@import "./assets/code.scss";
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300&display=swap");
+body {
+  font-family: "Noto Serif SC", -apple-system, roboto, helvetica neue,
+    sans-serif;
+  @apply cursor-custom;
+}
+
+a,
+img {
+  @apply cursor-custom-link;
+}
+
+body,
+a {
+  @apply text-gray antialiased;
+}
+
+::selection {
+  @apply text-white bg-purple;
+}

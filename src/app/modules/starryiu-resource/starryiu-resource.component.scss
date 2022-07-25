@@ -1,0 +1,11 @@
+.resource-card {
+  width: 32.5%;
+  @apply s-md:w-full;
+}
+
+.resource-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}

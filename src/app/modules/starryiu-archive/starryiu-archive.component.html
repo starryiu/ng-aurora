@@ -1,0 +1,17 @@
+<app-starryiu-content>
+  <app-starryiu-quote></app-starryiu-quote>
+  <div class="flex justify-between flex-wrap p-4" *ngIf="articles.length > 0">
+    <app-archive-card
+      class="w-49.2% s-md:w-full"
+      *ngFor="let article of articles; let i = index"
+      [archiveArticle]="article"
+    ></app-archive-card>
+  </div>
+  <app-starryiu-pagination
+    *ngIf="pageTotal"
+    [pageIndex]="pageIndex"
+    [pageTotal]="pageTotal"
+    [pageLoading]="pageLoading"
+    (pageIndexChange)="changePage($event)"
+  ></app-starryiu-pagination>
+</app-starryiu-content>

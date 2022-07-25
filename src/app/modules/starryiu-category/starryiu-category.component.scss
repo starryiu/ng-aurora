@@ -1,0 +1,10 @@
+.category-card {
+  width: 32.5%;
+  height: 160px;
+  @apply s-md:w-full s-md:mx-4;
+}
+
+.category-avatar {
+  width: 80px;
+  height: 80px;
+}

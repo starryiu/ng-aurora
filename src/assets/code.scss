@@ -1,0 +1,109 @@
+.code-card {
+  @apply text-15px;
+
+  img {
+    margin: 0 auto;
+    @apply shadow-card my-4 cursor-custom-link rounded;
+  }
+
+  h2 {
+    @apply text-xl font-bold my-4;
+  }
+
+  h3 {
+    &::before {
+      content: "# ";
+    }
+    @apply text-2xl font-bold my-4 hover:text-purple-darkest transition duration-300 cursor-custom-link;
+  }
+
+  a {
+    @apply text-purple-darkest hover:underline;
+  }
+
+  table {
+    @apply w-full my-4 border-l border-b border-gray-700;
+    tr {
+      @apply w-full flex;
+    }
+    td,
+    th {
+      @apply p-0.5 border-r border-t border-gray-700 flex-1 flex justify-center;
+    }
+  }
+
+  /* 代码高亮 */
+
+  pre {
+    @apply shadow-card my-4 p-2;
+  }
+
+  .hljs-comment,
+  .hljs-quote {
+    color: #999580;
+  }
+
+  /* Atelier-Dune Red */
+  .hljs-variable,
+  .hljs-template-variable,
+  .hljs-attribute,
+  .hljs-tag,
+  .hljs-name,
+  .hljs-regexp,
+  .hljs-link,
+  .hljs-name,
+  .hljs-selector-id,
+  .hljs-selector-class {
+    color: #d73737;
+  }
+
+  /* Atelier-Dune Orange */
+  .hljs-number,
+  .hljs-meta,
+  .hljs-built_in,
+  .hljs-builtin-name,
+  .hljs-literal,
+  .hljs-type,
+  .hljs-params {
+    color: #cd5da0;
+  }
+
+  /* Atelier-Dune Green */
+  .hljs-string,
+  .hljs-symbol,
+  .hljs-bullet {
+    color: #60ac39;
+  }
+
+  /* Atelier-Dune Blue */
+  .hljs-title,
+  .hljs-section {
+    color: #6684e1;
+  }
+
+  /* Atelier-Dune Purple */
+  .hljs-keyword,
+  .hljs-selector-tag {
+    @apply text-purple-darkest;
+  }
+
+  .hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    color: #a6a28c;
+    background: #20201d;
+  }
+
+  .hljs-emphasis {
+    font-style: italic;
+  }
+
+  .hljs-strong {
+    font-weight: bold;
+  }
+
+  .hljs-attr {
+    color: rgb(102, 132, 225);
+  }
+}

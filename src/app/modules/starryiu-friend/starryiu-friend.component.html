@@ -1,0 +1,43 @@
+<app-starryiu-content>
+  <app-starryiu-quote></app-starryiu-quote>
+  <div class="py-2 px-8 text-sm">
+    <div>欢迎各位大佬交换友链 (づ￣ 3￣)づ</div>
+    <div class="space-y-1 py-3">
+      <div>★ Bio：STARRYIU</div>
+      <div>★ Motto：世界充满了魔法与方块</div>
+      <div>★ URL：https://starryiu.github.io/</div>
+      <div>★ Avatar：点击获取</div>
+    </div>
+    <div>
+      ※
+      以下友链按博主互访频率排序，并根据个人对博客内容喜好加权，博主将不定期更新排序并过滤阵亡名单。
+    </div>
+    <div class="flex flex-wrap justify-between py-4" *ngIf="friends.length > 0">
+      <div
+        *ngFor="let friend of friends"
+        class="friend-card group overflow-hidden h-28 cursor-custom-link shadow-md bg-white bg-opacity-30 mt-2 relative"
+      >
+        <a [href]="friend.link" target="_blank" class="flex">
+          <img class="w-full h-full object-cover" [src]="friend.cover" alt="" />
+          <div
+            class="group-hover:-translate-y-28 transition duration-500 w-full h-full absolute left-0 top-0 bg-white bg-opacity-50"
+          >
+            <div
+              class="relative z-10 flex flex-col items-center h-full justify-center"
+            >
+              <img
+                class="w-12 h-12 rounded-full shadow"
+                [src]="friend.avatar"
+                alt=""
+              />
+              <span class="pt-1.5 text-base">{{ friend.name }}</span>
+            </div>
+            <div
+              class="rect w-full h-1/2 absolute left-0 bottom-0 bg-white bg-opacity-70 shadow"
+            ></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</app-starryiu-content>

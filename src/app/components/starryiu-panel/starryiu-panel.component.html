@@ -1,0 +1,100 @@
+<ng-template [ngIf]="type === 'PC'">
+  <img
+    class="w-7 h-7 cursor-custom-link fixed right-4 bottom-4 animate-spin-slow z-50"
+    src="https://fastly.jsdelivr.net/gh/chanshiyucx/yoi/blog/sakura.png"
+    alt=""
+    (click)="changeOpen(!this.open)"
+  />
+  <div
+    *ngIf="open"
+    class="fixed bg-white bg-opacity-40 w-full h-full left-0 top-0"
+    @openFade
+  ></div>
+
+  <div *ngIf="open" class="fixed left-0 top-0 z-30 w-full h-full" @openPanel>
+    <div
+      (click)="changeOpen(false)"
+      class="fixed w-full h-full left-0 top-0 z-0"
+    ></div>
+    <div
+      class="panel-card relative z-10 shadow rounded-xl absolute left-1/2 top-36 -translate-x-1/2 -translate-y-1"
+    >
+      <div class="panel-decorate">
+        <div class="circle w-full h-12 absolute left-0 top-0">
+          <div
+            class="w-2.5 h-2.5 bg-panel-theme rounded-full absolute top-1/2 -translate-y-1/2 left-7"
+          ></div>
+          <div
+            class="w-2.5 h-2.5 bg-panel-theme rounded-full absolute top-1/2 -translate-y-1/2 right-7"
+          ></div>
+        </div>
+        <div class="line w-full h-12 absolute left-0 top-0 z-20">
+          <div
+            class="w-0.5 h-96 bg-panel-theme absolute left-8 top-6 -translate-y-full"
+          ></div>
+          <div
+            class="w-0.5 h-96 bg-panel-theme absolute right-8 top-6 -translate-y-full"
+          ></div>
+        </div>
+        <div class="short-line w-full h-12 absolute left-0 top-0 -z-10">
+          <div
+            class="w-0.5 h-96 bg-panel-theme absolute left-16 top-6 -translate-y-full"
+          ></div>
+          <div
+            class="w-0.5 h-96 bg-panel-theme absolute right-16 top-6 -translate-y-full"
+          ></div>
+        </div>
+      </div>
+      <div
+        class="flex border-b rounded-t-xl border-panel-theme bg-panel-bg w-full h-12 justify-center items-center text-panel-theme text-xl"
+      >
+        背景主题
+      </div>
+      <div class="panel-content w-full bg-white flex p-4 py-6">
+        <div
+          class="w-1/2 flex items-center flex-col"
+          *ngFor="let theme of themeData"
+          (click)="changeTheme(theme.theme)"
+        >
+          <div class="text-lg">{{ theme.title }}</div>
+          <div class="relative flex justify-center cursor-custom-link">
+            <div
+              class="group relative w-full inline-flex justify-center w-52 h-28 my-4 items-center bg-gradient-to-b from-blue-200 to-purple-200"
+            >
+              <div
+                [ngClass]="
+                  selectTheme === theme.theme
+                    ? 'border-purple'
+                    : 'border-panel-border'
+                "
+                class="absolute w-full h-full border-4 box-content rounded transition-transform duration-500 group-hover:scale-105"
+              ></div>
+              <img
+                [ngClass]="theme.theme === 0 ? 'w-48 h-24' : 'w-52 h-28'"
+                class="object-cover z-10"
+                [src]="theme.cover"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-lg bg-white flex justify-center items-center py-6">
+        已有&nbsp; <span class="text-purple-darkest">8</span> &nbsp;人点赞了哦！
+      </div>
+      <div
+        class="flex rounded-b-xl relative border-t border-panel-theme bg-panel-bg w-full h-12 justify-center items-center text-panel-theme text-xl"
+      >
+        <div
+          class="group overflow-hidden shadow-lg dianzan-btn absolute left-1/2 -translate-x-1/2 bg-purple top-1/2 cursor-custom-link text-white rounded-full flex justify-center items-center text-base"
+        >
+          <div
+            class="w-full absolute h-full bg-purple-darkest transition-all duration-300 -left-full top-0 group-hover:left-0 group-hover:rounded-30px"
+          ></div>
+          <span class="relative z-10">谢谢点赞</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

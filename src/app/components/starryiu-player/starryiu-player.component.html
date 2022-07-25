@@ -1,0 +1,33 @@
+<div
+  *ngIf="type === 'PC'"
+  class="fixed bottom-0 z-30 flex cursor-custom-link transition-all duration-300"
+  [ngClass]="open ? 'left-0' : '-left-16'"
+>
+  <div class="w-16 h-16 relative">
+    <img
+      class="w-full h-full object-cover relative z-0"
+      src="https://fastly.jsdelivr.net/gh/starryiu/PicGo-jsDelivr/PicGo/f328997b553e38536691abe034b60baf.jpg"
+      alt=""
+    />
+    <div
+      class="absolute w-full h-full left-0 top-0 flex justify-center items-center"
+      (click)="changePlay()"
+    >
+      <span
+        [innerHTML]="RightCIcon"
+        class="transition-all duration-300"
+        [ngClass]="play ? 'translate-x-2/3 translate-y-2/3 scale-75 ' : ''"
+      ></span>
+    </div>
+  </div>
+  <div
+    class="bg-purple-light w-4 h-16 rounded-r-sm flex items-center"
+    (click)="openPlayer()"
+  >
+    <span [innerHTML]="rightIcon"></span>
+  </div>
+</div>
+<audio
+  #audio
+  src="https://s-sh-1658-mycunchu.oss.dogecdn.com/MP3/11.-%E7%A8%BB-%E9%A6%99.mp3"
+></audio>

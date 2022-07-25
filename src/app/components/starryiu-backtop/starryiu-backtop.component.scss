@@ -1,0 +1,9 @@
+.backTopImg {
+  width: 70px;
+  height: 900px;
+  top: -900px;
+}
+
+.backTopImg.active {
+  transform: translateY(calc(100vh - 80px));
+}
