@@ -10,7 +10,7 @@
       {{ selectCategory.title }}
     </span>
   </div>
-  <div class="flex justify-between flex-wrap" *ngIf="categorys.length > 0">
+  <div class="flex justify-between flex-wrap px-4" *ngIf="categorys.length > 0">
     <ng-template [ngIf]="!(articles | isEmpty)" [ngIfElse]="articleList">
       <div
         *ngFor="let category of categorys"

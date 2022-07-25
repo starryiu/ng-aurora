@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Bookmark, BookmarkOne, CalendarDot, Fire } from '@icon-park/svg';
+import { Bookmark, BookmarkOne, CalendarDot } from '@icon-park/svg';
 import { UtilsService } from '../../shared/utils.service';
 import { ArchiveArticle } from '../../shared/type';
 
@@ -12,7 +12,6 @@ export class ArchiveCardComponent implements OnInit {
   @Input() archiveArticle!: ArchiveArticle;
 
   calendarIcon = this.utilsService.getIconPark(CalendarDot({}));
-  fireIcon = this.utilsService.getIconPark(Fire({}));
   bookmarkIcon = this.utilsService.getIconPark(Bookmark({}));
   bookmarkOneIcon = this.utilsService.getIconPark(BookmarkOne({}));
 

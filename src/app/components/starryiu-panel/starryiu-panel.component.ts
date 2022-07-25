@@ -34,12 +34,12 @@ export class StarryiuPanelComponent implements OnInit {
     {
       title: '千年幻想',
       theme: Theme.touhou,
-      cover: __config.images.preview.touhou,
+      cover: __config.images.bg.preview.touhou,
     },
     {
       title: '琉璃の空',
       theme: Theme.school,
-      cover: __config.images.preview.school,
+      cover: __config.images.bg.preview.school,
     },
   ];
   changeOpen(value: boolean) {

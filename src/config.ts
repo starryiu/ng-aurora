@@ -27,10 +27,6 @@ export default {
       'https://fastly.jsdelivr.net/gh/chanshiyucx/yoi/blog/loading.gif',
     sakura: 'https://fastly.jsdelivr.net/gh/chanshiyucx/yoi/blog/sakura.png',
     reimu: 'https://fastly.jsdelivr.net/gh/chanshiyucx/yoi/blog/reimu.png',
-    preview: {
-      touhou: 'https://fastly.jsdelivr.net/gh/chanshiyucx/yoi/blog/touhou.png',
-      school: 'https://fastly.jsdelivr.net/gh/chanshiyucx/yoi/blog/school.jpg',
-    },
     bg: {
       preview: {
         touhou:
@@ -38,11 +34,6 @@ export default {
         school:
           'https://fastly.jsdelivr.net/gh/chanshiyucx/yoi/blog/school.jpg',
       },
-      test: [
-        'https://i.ibb.co/vdkrmYm/1b5ebba9c9302efb003656b2339f0a97dbb5214a.jpg',
-        'https://i.ibb.co/S58scdz/92457e0c09028873328dabc188a2e3585e20affe.jpg',
-        'https://i.ibb.co/yddKs9V/fb0126be1fb4c7d3aeeedff1fa187087afda711a.jpg',
-      ],
       touhou: [
         'https://s1.ax1x.com/2022/07/24/jjLwKx.jpg',
         'https://s1.ax1x.com/2022/07/24/jjLax1.jpg',

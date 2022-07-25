@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  important: true,
   content: ["./src/**/*.{html,ts}"],
   theme: {
     extend: {
@@ -24,6 +25,7 @@ module.exports = {
         "panel-bg": "#fbf4f1",
         "panel-theme": "#5d3523",
         "panel-border": "#ffe4d8",
+        "mobile-bg": "#f4f8fb",
       },
       animation: { "spin-slow": "spin 3s linear infinite" },
       scale: {
@@ -42,6 +44,7 @@ module.exports = {
       },
       screens: {
         "s-md": { max: "876px" },
+        md: { min: "878px" },
       },
     },
   },

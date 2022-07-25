@@ -20,7 +20,12 @@ export class StarryiuBgComponent implements OnInit {
 
   constructor(private storeService: StoreService) {}
 
+  clientType!: string;
   ngOnInit(): void {
+    this.storeService.clientType$.subscribe((type) => {
+      this.clientType = type;
+    });
+
     this.storeService.themeSwiper$.subscribe((value) => {
       this.theme = value;
     });
