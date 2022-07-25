@@ -1,9 +1,10 @@
 <div
+  *ngIf="!loading"
   [ngClass]="[
     !transparent ? 'bg-white bg-opacity-75 shadow-card' : '',
     loading ? '' : 'pb-4'
   ]"
-  class="rounded w-full mx-auto"
+  class="rounded pb-4 w-full mx-auto"
 >
   <ng-content></ng-content>
 </div>

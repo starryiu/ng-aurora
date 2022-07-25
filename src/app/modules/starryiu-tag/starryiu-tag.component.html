@@ -18,7 +18,7 @@
     <ng-template [ngIf]="!(articles | isEmpty)" [ngIfElse]="articleList">
       <div
         [ngStyle]="{ color: '#' + label.color }"
-        class="bg-black bg-opacity-10 text-opacity-80 cursor-custom-link px-3 py-1 text-sm rounded mr-8 mt-4 transition duration-200 hover:bg-opacity-25"
+        class="bg-black bg-opacity-10 text-opacity-80 cursor-custom-link px-3 py-1 text-sm rounded mr-8 s-md:mr-4 mt-4 transition duration-200 hover:bg-opacity-25"
         *ngFor="let label of labels"
         (click)="loadArticleByLabel(label); changeSelectLabel(label)"
       >
@@ -31,7 +31,7 @@
         *ngIf="articles.length > 0"
       >
         <app-archive-card
-          class="w-49.2%"
+          class="w-49.2% s-md:w-full"
           *ngFor="let article of articles; let i = index"
           [archiveArticle]="article"
         ></app-archive-card>

@@ -43,7 +43,7 @@
         *ngIf="articles.length > 0"
       >
         <app-archive-card
-          class="w-49.2%"
+          class="w-49.2% s-md:w-full"
           *ngFor="let article of articles; let i = index"
           [archiveArticle]="article"
         ></app-archive-card>
