@@ -51,6 +51,9 @@ module.exports = {
         "header-bg-mobile":
           "url('https://fastly.jsdelivr.net/gh/chanshiyucx/yoi/blog/mobile.jpg')",
       },
+      rotate: {
+        360: "360deg",
+      },
     },
   },
   plugins: [],

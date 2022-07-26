@@ -15,7 +15,7 @@
     <div class="flex flex-wrap justify-between py-4" *ngIf="friends.length > 0">
       <div
         *ngFor="let friend of friends"
-        class="friend-card group overflow-hidden h-28 cursor-custom-link shadow-md bg-white bg-opacity-30 mt-2 relative"
+        class="friend-card group overflow-hidden h-28 s-md:h-24 cursor-custom-link shadow-md bg-white bg-opacity-30 mt-2 relative"
       >
         <a [href]="friend.link" target="_blank" class="flex w-full h-full">
           <img class="w-full h-full object-cover" [src]="friend.cover" alt="" />
