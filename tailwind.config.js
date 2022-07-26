@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  important: true,
   content: ["./src/**/*.{html,ts}"],
   theme: {
     extend: {
@@ -47,6 +46,10 @@ module.exports = {
       screens: {
         "s-md": { max: "876px" },
         md: { min: "878px" },
+      },
+      backgroundImage: {
+        "header-bg-mobile":
+          "url('https://fastly.jsdelivr.net/gh/chanshiyucx/yoi/blog/mobile.jpg')",
       },
     },
   },
