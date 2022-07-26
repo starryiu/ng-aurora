@@ -34,6 +34,8 @@ module.exports = {
       boxShadow: {
         card: "0 14px 38px rgba(0,0,0,.08),0 3px 8px rgba(0,0,0,.06)",
         "card-hover": "0 14px 38px rgba(0,0,0,.14),0 3px 8px rgba(0,0,0,.12)",
+        nav: "inset 0 0 10px rgba(0, 0, 0, 0.2)",
+        "nav-mobile": "0 -1px 2px rgba(0,0,0,.1)",
       },
       fontSize: {
         "15px": ["15px", "27px"],

@@ -35,7 +35,7 @@
   /* 代码高亮 */
 
   pre {
-    @apply shadow-card my-4 p-2;
+    @apply shadow-card my-4 p-2 overflow-x-auto;
   }
 
   .hljs-comment,
