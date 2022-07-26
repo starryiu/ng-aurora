@@ -22,8 +22,7 @@ export class StarryiuRequestInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     this.requestCount++;
-    environment.globalLoading &&
-      this.storeService.changeGlobalLoadingSource(true);
+    // this.storeService.changeGlobalLoadingSource(true);
     const authReq = request.clone({
       headers: request.headers.set('Authorization', this.access_token),
     });

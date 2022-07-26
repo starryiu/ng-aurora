@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { StoreService } from '../../store.service';
 
 @Component({
   selector: 'app-starryiu-content',
@@ -9,12 +8,7 @@ import { StoreService } from '../../store.service';
 export class StarryiuContentComponent implements OnInit {
   @Input() transparent = false;
 
-  constructor(private storeService: StoreService) {}
+  constructor() {}
 
-  loading!: boolean;
-  ngOnInit(): void {
-    this.storeService.globalLoading$.subscribe((value) => {
-      this.loading = value;
-    });
-  }
+  ngOnInit(): void {}
 }

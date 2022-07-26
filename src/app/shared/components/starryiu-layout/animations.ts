@@ -7,7 +7,7 @@ import {
   sequence,
 } from '@angular/animations';
 
-export const routeFadeAnimation = trigger('routeAnimations', [
+export const routeFadeAnimation = trigger('routeFadeAnimation', [
   transition('* <=> *', [
     style({ position: 'relative' }),
     query(
