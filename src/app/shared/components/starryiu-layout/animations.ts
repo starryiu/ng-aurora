@@ -27,6 +27,7 @@ export const routeFadeAnimation = trigger('routeFadeAnimation', [
       query(
         ':leave',
         [
+          style({ opacity: 1, transform: 'translateY(0px)' }),
           animate(
             '0.45s ease-out',
             style({ opacity: 0, transform: 'translateY(30px)' })
