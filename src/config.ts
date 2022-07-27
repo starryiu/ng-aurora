@@ -59,4 +59,34 @@ export default {
       ],
     },
   },
+  musicList: [
+    {
+      name: '我落泪情绪零碎',
+      artist: '周杰伦',
+      url: '//s-sh-1658-mycunchu.oss.dogecdn.com/MP3/60054700492133856.mp3',
+      cover:
+        '//fastly.jsdelivr.net/gh/starryiu/PicGo-jsDelivr/PicGo/f328997b553e38536691abe034b60baf.jpg',
+    },
+    {
+      name: '稻香',
+      artist: '周杰伦',
+      url: '//s-sh-1658-mycunchu.oss.dogecdn.com/MP3%2F11.-%E7%A8%BB-%E9%A6%99.mp3',
+      cover:
+        '//fastly.jsdelivr.net/gh/starryiu/PicGo-jsDelivr/PicGo/d4339cc3859d52b676f5cc8ee327115e.jpg',
+    },
+    {
+      name: '11月の雨',
+      artist: 'CHiCO',
+      url: '//s-sh-1658-mycunchu.oss.dogecdn.com/MP3%2F11%E6%9C%88%E3%81%AE%E9%9B%A8.mp3',
+      cover:
+        '//fastly.jsdelivr.net/gh/starryiu/PicGo-jsDelivr/PicGo/08d28f509988b3ab16172a283eaf9a14.jpg',
+    },
+    {
+      name: '君の知らない物語',
+      artist: 'supercell',
+      url: '//s-sh-1658-mycunchu.oss.dogecdn.com/MP3%2F%E5%90%9B%E3%81%AE%E7%9F%A5%E3%82%89%E3%81%AA%E3%81%84%E7%89%A9%E8%AA%9E.mp3',
+      cover:
+        '//fastly.jsdelivr.net/gh/starryiu/PicGo-jsDelivr/PicGo/c6379a49b03b7b3b8c99d00325b0997b.jpg',
+    },
+  ],
 };

@@ -1,12 +1,12 @@
 <div
   *ngIf="type === 'PC'"
-  class="fixed bottom-0 z-30 flex cursor-custom-link transition-all duration-300"
-  [ngClass]="open ? 'left-0' : '-left-16'"
+  class="fixed bottom-0 z-30 flex transition-all duration-300"
+  [ngClass]="!miniOpen ? 'left-0' : '-left-80'"
 >
   <div class="w-16 h-16 relative">
     <img
       class="w-full h-full object-cover relative z-0"
-      src="https://fastly.jsdelivr.net/gh/starryiu/PicGo-jsDelivr/PicGo/f328997b553e38536691abe034b60baf.jpg"
+      [src]="musicList[musicIndex].cover"
       alt=""
     />
     <div
@@ -14,20 +14,86 @@
       (click)="changePlay()"
     >
       <span
-        [innerHTML]="RightCIcon"
+        [innerHTML]="rightCIcon"
         class="transition-all duration-300"
         [ngClass]="play ? 'translate-x-2/3 translate-y-2/3 scale-75 ' : ''"
       ></span>
     </div>
   </div>
   <div
-    class="bg-purple-light w-4 h-16 rounded-r-sm flex items-center"
+    class="player-content w-64 h-16 bg-white flex flex-col pt-3 pb-2 px-4 justify-between"
+  >
+    <div class="flex items-center cursor-custom-link">
+      <div class="flex-1 truncate">
+        <span class="text-sm">{{ musicList[musicIndex].name }}</span>
+        -
+        <span class="text-xs">{{ musicList[musicIndex].artist }}</span>
+      </div>
+      <div class="flex items-center">
+        <span
+          class="icon"
+          [innerHTML]="goStartIcon"
+          (click)="prevMusic()"
+        ></span>
+        <span
+          class="icon text-xl"
+          [innerHTML]="!play ? rightOneIcon : pauseIcon"
+          (click)="changePlay()"
+        ></span>
+        <span class="icon" [innerHTML]="goEndIcon" (click)="nextMusic()"></span>
+        <span
+          class="icon"
+          [innerHTML]="listMiddleIcon"
+          (click)="openList = !openList"
+        ></span>
+      </div>
+    </div>
+    <div class="flex items-center">
+      <div
+        class="slide flex-1 h-0.5 bg-gray-400 rounded mr-2 overflow-hidden transition duration-100"
+      >
+        <div
+          class="slide-bar bg-purple h-full"
+          [ngStyle]="{ width: slideWidth + '%' }"
+        ></div>
+      </div>
+      <span
+        class="icon text-sm"
+        [innerHTML]="volumeDownIcon"
+        (click)="recVolume()"
+      ></span>
+      <span
+        class="icon text-sm"
+        [innerHTML]="volumeUpIcon"
+        (click)="addVolume()"
+      ></span>
+    </div>
+  </div>
+  <div
+    class="bg-purple-light w-4 h-16 rounded-r-sm flex items-center text-white cursor-custom-link"
     (click)="openPlayer()"
   >
-    <span [innerHTML]="rightIcon"></span>
+    <span [innerHTML]="miniOpen ? rightIcon : leftIcon"></span>
+  </div>
+  <div
+    [ngClass]="openList ? '-translate-y-0' : '-translate-y-full'"
+    class="player-list absolute w-80 left-0 transition-all duration-500 rounded-t overflow-hidden -z-10"
+  >
+    <div
+      class="flex justify-between bg-white relative cursor-custom-link bg-opacity-90 text-xs items-center border-b border-gray-300 p-2 px-3 transition hover:bg-gray-100"
+      *ngFor="let item of musicList; let i = index"
+      (click)="changeMusic(i)"
+    >
+      <div
+        *ngIf="musicIndex === i"
+        class="music-after absolute w-0.5 h-2/3 bg-purple left-0.5 top-1/2 -translate-y-1/2"
+      ></div>
+      <div>
+        <span class="mr-2">{{ i + 1 }}</span>
+        <span>{{ item.name }}</span>
+      </div>
+      <span>{{ item.artist }}</span>
+    </div>
   </div>
 </div>
-<audio
-  #audio
-  src="https://s-sh-1658-mycunchu.oss.dogecdn.com/MP3/11.-%E7%A8%BB-%E9%A6%99.mp3"
-></audio>
+<audio #audio [src]="musicList[musicIndex].url"></audio>
