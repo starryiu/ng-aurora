@@ -11,14 +11,14 @@
     </span>
   </div>
   <div
-    class="pb-8 flex flex-wrap justify-between s-md:px-1"
+    class="pb-8 flex flex-wrap justify-between"
     *ngIf="labels.length > 0"
-    [ngClass]="!(articles | isEmpty) ? 'pt-4 px-8' : ''"
+    [ngClass]="!(articles | isEmpty) ? 'pt-4 px-8 s-md:px-4' : ''"
   >
     <ng-template [ngIf]="!(articles | isEmpty)" [ngIfElse]="articleList">
       <div
         [ngStyle]="{ color: '#' + label.color }"
-        class="bg-black bg-opacity-10 text-opacity-80 m-2 s-md:mx-1.5 s-md:my-2 cursor-custom-link px-2.5 py-1 text-sm rounded transition duration-200 hover:bg-opacity-25"
+        class="bg-black bg-opacity-10 text-opacity-80 m-2 s-md:mx-1 s-md:my-2 cursor-custom-link px-2.5 py-1 text-sm rounded transition duration-200 hover:bg-opacity-25"
         *ngFor="let label of labels"
         (click)="loadArticleByLabel(label); changeSelectLabel(label)"
       >
