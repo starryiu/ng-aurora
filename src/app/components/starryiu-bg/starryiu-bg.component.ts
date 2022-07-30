@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import SwiperCore, { Autoplay, EffectFade, Lazy } from 'swiper';
+import { concat } from 'rxjs';
+import { UtilsService } from '../../shared/utils.service';
 import __config from '../../../config';
 import { StoreService } from '../../shared/store.service';
 import { Theme } from '../../shared/type';
-import { Observable, concat } from 'rxjs';
 
 SwiperCore.use([EffectFade, Autoplay, Lazy]);
 
@@ -18,7 +19,10 @@ export class StarryiuBgComponent implements OnInit {
   theme: Theme = Theme.touhou;
   swiperDelay = 8000;
 
-  constructor(private storeService: StoreService) {}
+  constructor(
+    private storeService: StoreService,
+    private utilsService: UtilsService
+  ) {}
 
   clientType!: string;
   ngOnInit(): void {
@@ -34,39 +38,14 @@ export class StarryiuBgComponent implements OnInit {
 
     const { images } = __config;
     this.loadImages(images.bg.touhou).subscribe((data: any) => {
-      this.touhouImages.push(data.imageUrl);
+      data.loadStatus && this.touhouImages.push(data.imageUrl);
     });
     this.loadImages(images.bg.school).subscribe((data: any) => {
-      this.schoolImages.push(data.imageUrl);
+      data.loadStatus && this.schoolImages.push(data.imageUrl);
     });
   }
 
   loadImages(imagesUrl: string[]) {
-    return concat(...imagesUrl.map((url) => this.loadImage(url)));
-  }
-
-  loadImage(imageUrl: string) {
-    return new Observable((observer) => {
-      let img: HTMLImageElement | null = new Image();
-      img.src = imageUrl;
-      img.onload = () => {
-        img = null;
-        observer.next({
-          loadStatus: true,
-          loadMessage: 'success',
-          imageUrl,
-        });
-        observer.complete();
-      };
-      img.onerror = () => {
-        img = null;
-        observer.next({
-          loadStatus: true,
-          loadMessage: 'error',
-          imageUrl,
-        });
-        observer.complete();
-      };
-    });
+    return concat(...imagesUrl.map((url) => this.utilsService.loadImage(url)));
   }
 }

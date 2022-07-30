@@ -1,14 +1,10 @@
 <div class="w-full">
-  <img
-    class="w-full"
-    src="https://fastly.jsdelivr.net/gh/chanshiyucx/yoi/bg/defaultCover.jpg"
-    alt=""
-  />
+  <img class="w-full" [src]="defaultImageUrl" alt="" />
   <img
     *ngIf="loadedImage"
     @openFade
     class="w-full h-full absolute left-0 top-0 object-cover"
-    [src]="this.imageUrl"
+    [src]="imageUrl"
     alt=""
   />
 </div>

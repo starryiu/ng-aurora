@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { sample as __sample } from 'lodash';
-import { ArticleInfo } from './type';
+import { Observable } from 'rxjs';
+import { ArticleInfo, LoadImageType } from './type';
 import __config from '../../config';
 
 @Injectable({
@@ -127,12 +128,39 @@ export class UtilsService {
     return __sample(themeColors) as string;
   }
 
+  //滚动到顶部
   // @ts-ignore
   scroll = new SmoothScroll();
   backTop() {
     this.scroll.animateScroll(0, null, {
       speed: 600,
       speedAsDuration: true,
+    });
+  }
+
+  //加载图片
+  loadImage(imageUrl: string) {
+    return new Observable<LoadImageType>((observer) => {
+      let img: HTMLImageElement | null = new Image();
+      img.src = imageUrl;
+      img.onload = () => {
+        img = null;
+        observer.next({
+          loadStatus: true,
+          loadMessage: 'success',
+          imageUrl,
+        });
+        observer.complete();
+      };
+      img.onerror = () => {
+        img = null;
+        observer.next({
+          loadStatus: true,
+          loadMessage: 'error',
+          imageUrl,
+        });
+        observer.complete();
+      };
     });
   }
 

@@ -89,3 +89,9 @@ export enum Theme {
   touhou,
   school,
 }
+
+export interface LoadImageType {
+  loadStatus: boolean;
+  loadMessage: string;
+  imageUrl: string;
+}

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { UtilsService } from '../../shared/utils.service';
 
 @Component({
   selector: 'app-starryiu-cover',
@@ -18,14 +19,15 @@ import { animate, style, transition, trigger } from '@angular/animations';
 export class StarryiuCoverComponent implements OnInit {
   @Input() imageUrl: string = '';
   loadedImage = false;
+  defaultImageUrl =
+    'https://fastly.jsdelivr.net/gh/chanshiyucx/yoi/bg/defaultCover.jpg';
 
-  constructor() {}
+  constructor(private utilsService: UtilsService) {}
 
   ngOnInit(): void {
-    const img = new Image();
-    img.src = this.imageUrl;
-    img.onload = img.onerror = () => {
-      this.loadedImage = true;
-    };
+    //加载图片
+    this.utilsService.loadImage(this.imageUrl).subscribe((value) => {
+      this.loadedImage = value.loadStatus;
+    });
   }
 }
