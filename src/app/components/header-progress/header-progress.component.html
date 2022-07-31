@@ -1,0 +1,5 @@
+<div
+  class="fixed left-0 top-0 w-full h-1 bg-purple z-40 transition-transform origin-left duration-300"
+  *ngIf="type === 'PC'"
+  [ngStyle]="{ transform: 'scaleX(' + percent / 100 + ')' }"
+></div>

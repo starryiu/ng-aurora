@@ -38,6 +38,7 @@ import { MarkedPipe } from './pipes/marked.pipe';
 import { IsEmptyPipe } from './pipes/is-empty.pipe';
 
 import { StarryiuRequestInterceptor } from './interceptor/starryiu-request.interceptor';
+import { HeaderProgressComponent } from './components/header-progress/header-progress.component';
 @NgModule({
   declarations: [
     TimeagoPipe,
@@ -69,6 +70,7 @@ import { StarryiuRequestInterceptor } from './interceptor/starryiu-request.inter
     ArchiveCardComponent,
     GolbalLoadComponent,
     StarryiuContentComponent,
+    HeaderProgressComponent,
   ],
   imports: [
     BrowserModule,
