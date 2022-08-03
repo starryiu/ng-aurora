@@ -41,9 +41,9 @@ export class StarryiuArchiveComponent implements OnInit {
     this.storeService.archivePageIndex$.subscribe((value) => {
       this.pageIndex = value;
       this.loadArchiveArticles(this.pageIndex, 10);
-      this.apiService.getOpenArticleCount().subscribe((articleCount) => {
-        this.pageTotal = articleCount as number;
-      });
+    });
+    this.apiService.getOpenArticleCount().subscribe((articleCount) => {
+      this.pageTotal = articleCount as number;
     });
   }
 }

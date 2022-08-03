@@ -41,12 +41,12 @@ export class StarryiuHomeComponent implements OnInit {
     private storeService: StoreService
   ) {}
   ngOnInit(): void {
+    this.apiService.getOpenArticleCount().subscribe((articleCount) => {
+      this.pageTotal = articleCount as number;
+    });
     this.storeService.homePageIndex$.subscribe((value) => {
       this.pageIndex = value;
       this.loadArticles(this.pageIndex, 10);
-      this.apiService.getOpenArticleCount().subscribe((articleCount) => {
-        this.pageTotal = articleCount as number;
-      });
     });
   }
 }

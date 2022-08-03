@@ -3,7 +3,7 @@
   class="fixed bottom-0 z-30 flex transition-all duration-300"
   [ngClass]="!miniOpen ? 'left-0' : '-left-80'"
 >
-  <div class="w-16 h-16 relative">
+  <div class="w-16 h-16 relative cursor-custom-link">
     <img
       class="w-full h-full object-cover relative z-0"
       [src]="musicList[musicIndex].cover"
@@ -23,7 +23,7 @@
   <div
     class="player-content w-64 h-16 bg-white flex flex-col pt-3 pb-2 px-4 justify-between"
   >
-    <div class="flex items-center cursor-custom-link">
+    <div class="flex items-center">
       <div class="flex-1 truncate">
         <span class="text-sm">{{ musicList[musicIndex].name }}</span>
         -
@@ -77,10 +77,10 @@
   </div>
   <div
     [ngClass]="openList ? '-translate-y-0' : '-translate-y-full'"
-    class="player-list absolute w-80 left-0 transition-all duration-500 rounded-t overflow-hidden -z-10"
+    class="player-list absolute w-80 left-0 cursor-custom-link transition-all duration-500 rounded-t overflow-hidden -z-10"
   >
     <div
-      class="flex justify-between bg-white relative cursor-custom-link bg-opacity-90 text-xs items-center border-b border-gray-300 p-2 px-3 transition hover:bg-gray-100"
+      class="flex justify-between bg-white relative bg-opacity-90 text-xs items-center border-b border-gray-300 p-2 px-3 transition hover:bg-gray-100"
       *ngFor="let item of musicList; let i = index"
       (click)="changeMusic(i)"
     >

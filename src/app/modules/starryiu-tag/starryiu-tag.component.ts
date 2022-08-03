@@ -73,7 +73,6 @@ export class StarryiuTagComponent implements OnInit {
         this.loadArticleByLabel(this.selectLabel, this.pageIndex);
       }
     });
-
     this.apiService.getLabel().subscribe((labels) => {
       this.labels = labels;
     });
