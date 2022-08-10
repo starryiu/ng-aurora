@@ -1,0 +1,5 @@
+ul {
+  li:nth-last-child(n + 2) {
+    @apply border-b border-gray border-dashed my-1 py-1;
+  }
+}
