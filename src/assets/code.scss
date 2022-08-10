@@ -1,3 +1,11 @@
+.about-page {
+  .code-card ul {
+    li:nth-last-child(n + 2) {
+      @apply border-b border-gray border-dashed my-1 py-1;
+    }
+  }
+}
+
 .code-card {
   @apply text-15px;
 
