@@ -43,7 +43,7 @@ export class StarryiuPlayerComponent implements OnInit, AfterViewInit {
   volumeDownIcon = this.utilsService.getIconPark(VolumeDown(this.iconConfig));
   pauseIcon = this.utilsService.getIconPark(Pause(this.iconConfig));
 
-  openList = false;
+  openList = true;
   musicList = __config.musicList;
 
   miniOpen = true;
