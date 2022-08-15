@@ -123,7 +123,13 @@ export class ApiService {
     return new Observable((observer) => {
       this.http.get(`${this.GITHUB_API}/labels`).subscribe((data: any) => {
         let formatData = data.filter((o: any) => {
-          return !['About', 'Friend', 'Inspiration', 'Song'].includes(o.name);
+          return ![
+            'About',
+            'Friend',
+            'Inspiration',
+            'Song',
+            'Resource',
+          ].includes(o.name);
         });
         observer.next(formatData);
         observer.complete();
