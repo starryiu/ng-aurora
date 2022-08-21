@@ -11,6 +11,8 @@ import { StarryiuFriendComponent } from './modules/starryiu-friend/starryiu-frie
 import { StarryiuAboutComponent } from './modules/starryiu-about/starryiu-about.component';
 import { StarryiuArticleComponent } from './modules/starryiu-article/starryiu-article.component';
 
+import { ArticleResolverService } from './modules/starryiu-article/article-resolver.service';
+
 const routes: Routes = [
   {
     path: '',
@@ -72,6 +74,9 @@ const routes: Routes = [
   {
     path: 'post/:id',
     component: StarryiuArticleComponent,
+    resolve: {
+      article: ArticleResolverService,
+    },
     data: {
       animation: 'Post',
     },

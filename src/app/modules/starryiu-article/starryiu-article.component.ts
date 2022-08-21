@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CalendarDot, Bookmark, BookmarkOne } from '@icon-park/svg';
 import { UtilsService } from '../../shared/utils.service';
-import { ApiService } from '../../shared/api.service';
 import { Article } from '../../shared/type';
 
 @Component({
@@ -16,21 +15,15 @@ export class StarryiuArticleComponent implements OnInit {
   bookmarkIcon = this.utilsService.getIconPark(Bookmark({}));
   bookmarkOneIcon = this.utilsService.getIconPark(BookmarkOne({}));
 
-  loadArticle(id: string) {
-    this.apiService.getArticle(id).subscribe((data: Article) => {
-      this.article = data;
-    });
-  }
-
   constructor(
     private utilsService: UtilsService,
-    private route: ActivatedRoute,
-    private apiService: ApiService
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe((param: any) => {
-      this.loadArticle(param.params.id);
+    this.route.data.subscribe((data: any) => {
+      this.article = data?.article;
+      this.utilsService.backTop();
     });
   }
 }
