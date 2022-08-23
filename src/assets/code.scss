@@ -1,3 +1,4 @@
+//关于页面额外配置
 .about-page {
   .code-card ul {
     li:nth-last-child(n + 2) {
@@ -9,6 +10,22 @@
 .code-card {
   @apply text-15px;
 
+  ul {
+    margin-left: 20px;
+  }
+
+  p {
+    margin-bottom: 25px;
+    code {
+      padding: 2px 4px;
+      font-size: 13px;
+      border-radius: 3px;
+      color: #b854d4;
+      background-color: rgba(0, 0, 0, 0.1);
+      word-wrap: break-word;
+    }
+  }
+
   img {
     margin: 0 auto;
     @apply shadow-card my-4 cursor-custom-link rounded;
@@ -18,14 +35,16 @@
     &::before {
       content: "# ";
     }
-    @apply text-xl font-bold my-4;
+    font-size: 20px;
+    @apply font-bold my-4;
   }
 
   h3 {
     &::before {
       content: "## ";
     }
-    @apply text-sm font-bold my-4 hover:text-purple-darkest transition duration-300 cursor-custom-link;
+    font-size: 18px;
+    @apply font-bold my-4 hover:text-purple-darkest transition duration-300 cursor-custom-link;
   }
 
   a {
