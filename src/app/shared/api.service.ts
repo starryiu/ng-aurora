@@ -129,6 +129,7 @@ export class ApiService {
             'Inspiration',
             'Song',
             'Resource',
+            'Archive',
           ].includes(o.name);
         });
         observer.next(formatData);
