@@ -27,7 +27,6 @@ export class StarryiuWalineComponent
       el: this.walineComment.nativeElement,
       serverURL: 'https://waline-test-iz0f3ze0o-starryiu.vercel.app/',
       path: this.path,
-      login: 'disable',
       requiredMeta: ['nick', 'mail'],
       wordLimit: 1000,
     });
