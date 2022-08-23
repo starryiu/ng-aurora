@@ -6,8 +6,32 @@
       @media screen and (min-width: 876px) {
         margin: 0 16px;
       }
-      li:nth-last-child(n + 2) {
-        @apply border-b border-gray border-dashed my-1 py-1;
+      li {
+        padding-bottom: 15px;
+        padding-left: 24px;
+        position: relative;
+        &::after {
+          content: "";
+          width: 9.8px;
+          height: 9.8px;
+          position: absolute;
+          left: 0;
+          top: calc(50% - 6px);
+          transform: translateY(-50%);
+          background-color: #fff;
+          border-radius: 5px;
+          border: 2px solid;
+          @apply border-purple-darkest shadow;
+        }
+        &:nth-last-child(n + 2)::before {
+          content: "";
+          position: absolute;
+          left: 4px;
+          top: calc(50% - 6px);
+          width: 1.6px;
+          height: 105%;
+          background: #f0f0f0;
+        }
       }
     }
     p {
