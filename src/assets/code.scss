@@ -3,6 +3,8 @@
   .code-card {
     ul {
       margin: 0;
+      position: relative;
+      overflow: hidden;
       @media screen and (min-width: 876px) {
         margin: 0 16px;
       }
@@ -21,16 +23,36 @@
           background-color: #fff;
           border-radius: 5px;
           border: 2px solid;
+          z-index: 5;
           @apply border-purple-darkest shadow;
         }
-        &:nth-last-child(n + 2)::before {
+        &::before {
+          content: "";
+          position: absolute;
+          left: 4px;
+          top: calc(-50% - 6px);
+          width: 1.6px;
+          height: 500%;
+          background: #f0f0f0;
+          z-index: 0;
+        }
+        &:nth-child(1)::before {
+          content: "";
+          position: absolute;
+          left: 4px;
+          top: 0;
+          width: 1.6px;
+          height: 100%;
+          background: white;
+        }
+        &:nth-last-child(1)::before {
           content: "";
           position: absolute;
           left: 4px;
           top: calc(50% - 6px);
           width: 1.6px;
-          height: 105%;
-          background: #f0f0f0;
+          height: 100%;
+          background: white;
         }
       }
     }
