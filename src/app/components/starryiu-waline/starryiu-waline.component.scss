@@ -1,0 +1,6 @@
+:host ::ng-deep #waline {
+  input,
+  textarea {
+    outline: none;
+  }
+}

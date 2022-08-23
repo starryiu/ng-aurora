@@ -29,3 +29,11 @@ a {
 ::selection {
   @apply text-white bg-purple;
 }
+
+:root {
+  /* 主题色 */
+  --waline-theme-color: #b854d4;
+  --waline-active-color: #d68fe9;
+  /* 徽章 */
+  --waline-badge-color: #d68fe9;
+}
