@@ -4,6 +4,12 @@
   ul {
     margin-left: 20px;
   }
+  ol {
+    @apply px-6 list-decimal;
+    li p {
+      margin: 0 !important;
+    }
+  }
 
   p {
     margin-bottom: 25px;

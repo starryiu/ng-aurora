@@ -13,11 +13,11 @@
         {{ archiveArticle.created_at | timeago }}
       </span>
       <span>
-        <span class="svg" [innerHTML]="bookmarkIcon"></span>
-        {{ archiveArticle.milestone.title || "未分类" }}
+        <span class="svg" [innerHTML]="bookmarkOneIcon"></span>
+        {{ archiveArticle.milestone?.title || "未分类" }}
       </span>
       <span>
-        <span class="svg" [innerHTML]="bookmarkOneIcon"></span>
+        <span class="svg" [innerHTML]="tagIcon"></span>
         {{ archiveArticle.labels[0]?.name || "无标签" }}
       </span>
     </div>
