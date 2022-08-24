@@ -36,11 +36,6 @@ export class ApiService {
       'created_at',
     ]);
   }
-  private getArticles(page: number, limit: number, state: string = 'open') {
-    return this.http.get(
-      `${this.GITHUB_API}/issues?page=${page}&per_page=${limit}&state=${state}`
-    );
-  }
   //获取open文章的总数
   getOpenArticleCount() {
     return new Observable((observer) => {
@@ -57,34 +52,52 @@ export class ApiService {
     state: string = 'open'
   ): Observable<HomeArticle[]> {
     return new Observable((observer) => {
-      this.getArticles(page, limit, state).subscribe((datas: any) => {
-        let formatDatas = datas.map((val: any) => {
-          val = this.pickPostData(val);
-          val.info = this.utilsService.formatPost(val.body);
-          val = __omit(val, ['body']);
-          return val;
+      this.http
+        .get(
+          `${this.GITHUB_API}/issues?page=${page}&per_page=${limit}&state=${state}`
+        )
+        .subscribe((datas: any) => {
+          let formatDatas = datas.map((val: any) => {
+            val = this.pickPostData(val);
+            val.info = this.utilsService.formatPost(val.body);
+            val = __omit(val, ['body']);
+            return val;
+          });
+          observer.next(formatDatas);
+          observer.complete();
         });
-        observer.next(formatDatas);
-        observer.complete();
-      });
     });
   }
   //获取归档文章列表
+  getArchiveArticleCount() {
+    return new Observable((observer) => {
+      this.http
+        .get(`${this.GITHUB_API}/issues?state=closed&labels=Archive`)
+        .subscribe((articleCount: any) => {
+          observer.next(articleCount.length);
+          observer.complete();
+        });
+    });
+  }
   getArchiveArticles(
     page: number,
     limit: number,
-    state: string = 'open'
+    state: string = 'closed'
   ): Observable<ArchiveArticle[]> {
     return new Observable((observer) => {
-      this.getArticles(page, limit, state).subscribe((datas: any) => {
-        let formatDatas = datas.map((val: any) => {
-          val = this.pickPostData(val);
-          val = __omit(val, ['body']);
-          return val;
+      this.http
+        .get(
+          `${this.GITHUB_API}/issues?page=${page}&per_page=${limit}&state=${state}&labels=Archive`
+        )
+        .subscribe((datas: any) => {
+          let formatDatas = datas.map((val: any) => {
+            val = this.pickPostData(val);
+            val = __omit(val, ['body']);
+            return val;
+          });
+          observer.next(formatDatas);
+          observer.complete();
         });
-        observer.next(formatDatas);
-        observer.complete();
-      });
     });
   }
   //获取分类

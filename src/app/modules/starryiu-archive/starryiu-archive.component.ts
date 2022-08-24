@@ -26,7 +26,10 @@ export class StarryiuArchiveComponent implements OnInit {
   loadArchiveArticles(page: number, limit: number) {
     this.pageLoading = true;
     this.apiService.getArchiveArticles(page, limit).subscribe((articles) => {
-      this.articles = articles;
+      this.articles = articles.map((article) => {
+        article.labels[0].name === 'Archive' && article.labels.pop();
+        return article;
+      });
       this.pageLoading = false;
     });
   }
@@ -42,7 +45,8 @@ export class StarryiuArchiveComponent implements OnInit {
       this.pageIndex = value;
       this.loadArchiveArticles(this.pageIndex, 10);
     });
-    this.apiService.getOpenArticleCount().subscribe((articleCount) => {
+
+    this.apiService.getArchiveArticleCount().subscribe((articleCount) => {
       this.pageTotal = articleCount as number;
     });
   }
