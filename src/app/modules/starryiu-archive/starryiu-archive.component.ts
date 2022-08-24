@@ -27,7 +27,9 @@ export class StarryiuArchiveComponent implements OnInit {
     this.pageLoading = true;
     this.apiService.getArchiveArticles(page, limit).subscribe((articles) => {
       this.articles = articles.map((article) => {
-        article.labels[0].name === 'Archive' && article.labels.pop();
+        if (article.labels.length > 0) {
+          article.labels[0].name === 'Archive' && article.labels.pop();
+        }
         return article;
       });
       this.pageLoading = false;
