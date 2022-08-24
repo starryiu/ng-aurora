@@ -3,4 +3,18 @@
   textarea {
     outline: none;
   }
+  @media screen and (max-width: 876px) {
+    .wl-item {
+      padding: 0;
+    }
+    .wl-panel {
+      @apply m-0 rounded;
+    }
+    .wl-comment-actions > .wl-like {
+      display: none;
+    }
+    .wl-comment-actions > .wl-reply {
+      @apply cursor-custom-link;
+    }
+  }
 }
