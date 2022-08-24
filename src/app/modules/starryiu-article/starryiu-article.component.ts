@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CalendarDot, Bookmark, BookmarkOne } from '@icon-park/svg';
+import { CalendarDot, Tag, BookmarkOne } from '@icon-park/svg';
 import { UtilsService } from '../../shared/utils.service';
 import { Article } from '../../shared/type';
 
@@ -12,7 +12,7 @@ import { Article } from '../../shared/type';
 export class StarryiuArticleComponent implements OnInit {
   article!: Article;
   calendarIcon = this.utilsService.getIconPark(CalendarDot({}));
-  bookmarkIcon = this.utilsService.getIconPark(Bookmark({}));
+  tagIcon = this.utilsService.getIconPark(Tag({}));
   bookmarkOneIcon = this.utilsService.getIconPark(BookmarkOne({}));
 
   constructor(
