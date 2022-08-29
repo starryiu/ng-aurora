@@ -13,7 +13,9 @@
             class="backdrop-blur absolute left-0 bottom-0 flex justify-between items-center bg-white bg-opacity-80 w-full p-3"
           >
             <p class="text-lg">{{ article.title }}</p>
-            <span class="pixiv">{{ article.info.title | pixivFormat }}</span>
+            <span class="pixiv s-md:hidden">{{
+              article.info.title | pixivFormat
+            }}</span>
           </div>
         </div>
         <div class="overflow-hidden text-sm px-4 py-3 leading-6 flex flex-1">

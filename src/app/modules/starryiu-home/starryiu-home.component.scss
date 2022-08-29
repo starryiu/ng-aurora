@@ -2,7 +2,7 @@
   font-size: 13px;
 }
 
-span {
+span:not(.pixiv) {
   @apply inline-flex items-center;
 }
 

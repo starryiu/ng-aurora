@@ -11,10 +11,10 @@
         alt=""
       />
       <div
-        class="backdrop-blur bg-white absolute bg-opacity-80 h-20 left-0 w-full bottom-0 text-xl px-3 py-2 space-y-0.5 flex flex-col justify-around"
+        class="backdrop-blur bg-white absolute bg-opacity-80 md:h-20 left-0 w-full bottom-0 text-xl px-3 py-2 s-md:py-3 space-y-0.5 flex flex-col justify-around"
       >
         <div>{{ article.title }}</div>
-        <div class="text-sm space-x-3 flex">
+        <div class="text-sm space-x-3 flex s-md:hidden">
           <span>
             <span class="svg" [innerHTML]="calendarIcon"></span>
             {{ article.created_at | timeago }}
