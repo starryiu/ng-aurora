@@ -1,6 +1,6 @@
 <app-starryiu-content>
   <app-starryiu-quote></app-starryiu-quote>
-  <div class="p-4" *ngIf="essay.length > 0">
+  <div class="p-4 main-page" *ngIf="essay.length > 0">
     <app-starryiu-segment
       *ngFor="let data of essay"
       [body]="data.body"
