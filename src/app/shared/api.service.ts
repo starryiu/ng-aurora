@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { omit as __omit, pick as __pick } from 'lodash';
+import { omit as __omit, pick as __pick, unionBy as __unionBy } from 'lodash';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
 import { UtilsService } from './utils.service';
@@ -134,20 +134,16 @@ export class ApiService {
   //获取标签
   getLabel(): Observable<PageLabels[]> {
     return new Observable((observer) => {
-      this.http.get(`${this.GITHUB_API}/labels`).subscribe((data: any) => {
-        let formatData = data.filter((o: any) => {
-          return ![
-            'About',
-            'Friend',
-            'Inspiration',
-            'Song',
-            'Resource',
-            'Archive',
-          ].includes(o.name);
+      this.http
+        .get(`${this.GITHUB_API}/issues?state=open`)
+        .subscribe((data: any) => {
+          const formatData: any = __unionBy(
+            data.map((article: any) => article.labels).flat(),
+            'name'
+          );
+          observer.next(formatData);
+          observer.complete();
         });
-        observer.next(formatData);
-        observer.complete();
-      });
     });
   }
   //获取资源
