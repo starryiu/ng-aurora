@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { omit as __omit, pick as __pick, unionBy as __unionBy } from 'lodash';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, Observable, throwError } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { UtilsService } from './utils.service';
 import {
   About,
@@ -226,7 +226,6 @@ export class ApiService {
     return new Observable<Article>((observer) => {
       this.http
         .get(`${this.GITHUB_API}/issues/${Number(articleNumber)}?state=open`)
-        .pipe(catchError(this.handleError))
         .subscribe((val: any) => {
           val = this.pickPostData(val);
           val.info = this.utilsService.formatPost(val.body);
@@ -280,21 +279,6 @@ export class ApiService {
           observer.complete();
         });
     });
-  }
-  private handleError(error: HttpErrorResponse) {
-    if (error.status === 0) {
-      console.error('An error occurred:', error.error);
-      console.error('客户端错误，可能有网络波动。');
-    } else {
-      console.error(
-        `Backend returned code ${error.status}, body was: `,
-        error.error
-      );
-      console.error('服务端错误，访问 github api 出错。');
-    }
-    return throwError(
-      () => new Error('Something bad happened; please try again later.')
-    );
   }
 
   constructor(
