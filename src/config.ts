@@ -68,6 +68,13 @@ export default {
         '//fastly.jsdelivr.net/gh/starryiu/PicGo-jsDelivr/PicGo/f328997b553e38536691abe034b60baf.jpg',
     },
     {
+      name: '好きだから。',
+      artist: '『ユイカ』',
+      url: '//s-sh-1658-mycunchu.oss.dogecdn.com/MP3/%E5%A5%BD%E3%81%8D%E3%81%A0%E3%81%8B%E3%82%89%E3%80%82-%20%E3%80%8E%E3%83%A6%E3%82%A4%E3%82%AB%E3%80%8F.mp3',
+      cover:
+        '//s-sh-1658-mycunchu.oss.dogecdn.com/MP3/Snipaste_2022-08-31_22-10-08.png',
+    },
+    {
       name: '稻香',
       artist: '周杰伦',
       url: '//s-sh-1658-mycunchu.oss.dogecdn.com/MP3%2F11.-%E7%A8%BB-%E9%A6%99.mp3',
