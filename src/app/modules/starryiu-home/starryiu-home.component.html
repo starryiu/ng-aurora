@@ -34,7 +34,7 @@
           </span>
           <span>
             <span class="svg" [innerHTML]="tagIcon"></span>
-            {{ article.labels[0]?.name || "无标签" }}
+            {{ article.labels | labelsFormat }}
           </span>
         </div>
       </a>

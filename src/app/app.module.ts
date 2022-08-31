@@ -36,6 +36,7 @@ import { TimeagoPipe } from './pipes/timeago.pipe';
 import { PixivFormatPipe } from './pipes/pixiv-format.pipe';
 import { MarkedPipe } from './pipes/marked.pipe';
 import { IsEmptyPipe } from './pipes/is-empty.pipe';
+import { LabelsFormatPipe } from './pipes/labels-format.pipe';
 
 import { StarryiuRequestInterceptor } from './interceptor/starryiu-request.interceptor';
 import { HeaderProgressComponent } from './components/header-progress/header-progress.component';
@@ -46,6 +47,7 @@ import { StarryiuWalineComponent } from './components/starryiu-waline/starryiu-w
     PixivFormatPipe,
     MarkedPipe,
     IsEmptyPipe,
+    LabelsFormatPipe,
     AppComponent,
     StarryiuBgComponent,
     StarryiuLayoutComponent,

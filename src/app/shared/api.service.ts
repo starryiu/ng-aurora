@@ -141,6 +141,9 @@ export class ApiService {
             data.map((article: any) => article.labels).flat(),
             'name'
           );
+          formatData.sort((a: any, b: any) => {
+            return b.id - a.id;
+          });
           observer.next(formatData);
           observer.complete();
         });

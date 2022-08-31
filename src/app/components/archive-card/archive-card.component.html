@@ -18,7 +18,7 @@
       </span>
       <span>
         <span class="svg" [innerHTML]="tagIcon"></span>
-        {{ archiveArticle.labels[0]?.name || "无标签" }}
+        {{ archiveArticle.labels | labelsFormat }}
       </span>
     </div>
   </a>
