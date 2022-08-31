@@ -3,6 +3,9 @@
   textarea {
     outline: none;
   }
+  button[title="表情包"] {
+    display: none;
+  }
   @media screen and (max-width: 876px) {
     .wl-item {
       padding: 0;

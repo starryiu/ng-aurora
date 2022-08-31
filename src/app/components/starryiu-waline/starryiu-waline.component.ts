@@ -20,18 +20,18 @@ export class StarryiuWalineComponent
   constructor() {}
 
   ngOnInit(): void {}
-  aboutWaline!: any;
+  walineInstance!: any;
   ngAfterViewInit() {
     // @ts-ignore
-    this.aboutWaline = Waline.init({
+    this.walineInstance = Waline.init({
       el: this.walineComment.nativeElement,
       serverURL: 'https://waline-test-iz0f3ze0o-starryiu.vercel.app/',
       path: this.path,
       requiredMeta: ['nick', 'mail'],
-      wordLimit: 1000,
+      wordLimit: 200,
     });
   }
   ngOnDestroy() {
-    this.aboutWaline && this.aboutWaline.destroy();
+    this.walineInstance && this.walineInstance.destroy();
   }
 }
