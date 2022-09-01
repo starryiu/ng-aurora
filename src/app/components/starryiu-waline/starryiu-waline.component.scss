@@ -19,5 +19,9 @@
     .wl-comment-actions > .wl-reply {
       @apply cursor-custom-link;
     }
+    label[title="上传图片"],
+    .wl-text-number {
+      display: none;
+    }
   }
 }
