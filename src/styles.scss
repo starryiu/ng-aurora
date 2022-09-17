@@ -9,10 +9,9 @@
 @import "./assets/font/font.scss";
 @import "./assets/code.scss";
 
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300&display=swap");
 body {
-  font-family: "Noto Serif SC", -apple-system, roboto, helvetica neue,
-    sans-serif;
+  font-family: "Noto Sans SC", -apple-system, roboto, helvetica neue, sans-serif;
   @apply cursor-custom;
 }
 
