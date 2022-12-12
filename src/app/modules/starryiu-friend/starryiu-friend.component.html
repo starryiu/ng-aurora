@@ -1,6 +1,6 @@
 <app-starryiu-content>
   <app-starryiu-quote></app-starryiu-quote>
-  <div class="py-2 px-8 text-sm s-md:px-4">
+  <div class="py-2 px-8 text-sm s-md:px-4" *ngIf="friends.length > 0">
     <div>欢迎各位交换友链 (づ￣ 3￣)づ</div>
     <div class="space-y-1 py-3">
       <div>★ Bio：STARRYIU</div>
@@ -19,7 +19,7 @@
       ※
       以下友链按博主互访频率排序，并根据个人对博客内容喜好加权，博主将不定期更新排序并过滤阵亡名单。
     </div>
-    <div class="flex flex-wrap justify-between py-4" *ngIf="friends.length > 0">
+    <div class="flex flex-wrap justify-between py-4">
       <div
         *ngFor="let friend of friends"
         class="friend-card group overflow-hidden h-28 s-md:h-24 cursor-custom-link shadow-md bg-white bg-opacity-30 mt-2 relative"
