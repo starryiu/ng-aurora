@@ -165,11 +165,13 @@ export class ApiService {
         });
     });
   }
-  //获取随笔（原灵感）
+  //获取随笔（原灵感）,暂时查询10000条
   getEssayCount() {
     return new Observable<number>((observer) => {
       this.http
-        .get(`${this.GITHUB_API}/issues?state=closed&labels=Inspiration`)
+        .get(
+          `${this.GITHUB_API}/issues?page=1&per_page=10000&state=closed&labels=Inspiration`
+        )
         .subscribe((essay: any) => {
           observer.next(essay.length);
           observer.complete();
