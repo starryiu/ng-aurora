@@ -60,13 +60,13 @@ export default {
     },
   },
   musicList: [
-    {
-      name: '我落泪情绪零碎',
-      artist: '周杰伦',
-      url: '//s-sh-1658-mycunchu.oss.dogecdn.com/MP3/60054700492133856.mp3',
-      cover:
-        '//fastly.jsdelivr.net/gh/starryiu/PicGo-jsDelivr/PicGo/f328997b553e38536691abe034b60baf.jpg',
-    },
+    // {
+    //   name: '我落泪情绪零碎',
+    //   artist: '周杰伦',
+    //   url: '//s-sh-1658-mycunchu.oss.dogecdn.com/MP3/60054700492133856.mp3',
+    //   cover:
+    //     '//fastly.jsdelivr.net/gh/starryiu/PicGo-jsDelivr/PicGo/f328997b553e38536691abe034b60baf.jpg',
+    // },
     {
       name: '好きだから。',
       artist: '『ユイカ』',
@@ -74,13 +74,13 @@ export default {
       cover:
         '//s-sh-1658-mycunchu.oss.dogecdn.com/MP3/Snipaste_2022-08-31_22-10-08.png',
     },
-    {
-      name: '稻香',
-      artist: '周杰伦',
-      url: '//s-sh-1658-mycunchu.oss.dogecdn.com/MP3%2F11.-%E7%A8%BB-%E9%A6%99.mp3',
-      cover:
-        '//fastly.jsdelivr.net/gh/starryiu/PicGo-jsDelivr/PicGo/d4339cc3859d52b676f5cc8ee327115e.jpg',
-    },
+    // {
+    //   name: '稻香',
+    //   artist: '周杰伦',
+    //   url: '//s-sh-1658-mycunchu.oss.dogecdn.com/MP3%2F11.-%E7%A8%BB-%E9%A6%99.mp3',
+    //   cover:
+    //     '//fastly.jsdelivr.net/gh/starryiu/PicGo-jsDelivr/PicGo/d4339cc3859d52b676f5cc8ee327115e.jpg',
+    // },
     {
       name: '11月の雨',
       artist: 'CHiCO',
