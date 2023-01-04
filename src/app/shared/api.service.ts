@@ -135,7 +135,7 @@ export class ApiService {
   getLabel(): Observable<PageLabels[]> {
     return new Observable((observer) => {
       this.http
-        .get(`${this.GITHUB_API}/issues?state=open`)
+        .get(`${this.GITHUB_API}/issues?page=1&per_page=10000&state=open`)
         .subscribe((data: any) => {
           const formatData: any = __unionBy(
             data.map((article: any) => article.labels).flat(),
