@@ -60,14 +60,18 @@ export class StarryiuPlayerComponent implements OnInit, AfterViewInit {
   @ViewChild('audio') audioRef!: ElementRef;
   //播放 暂停
   play = false;
-  changePlay() {
-    this.play = !this.play;
+  changePlay(playValue?: boolean) {
+    this.play = playValue ? playValue : !this.play;
     if (this.play && this.audioRef) {
-      this.audioRef.nativeElement.play();
-      this.watchSlideWidth();
+      setTimeout(() => {
+        this.audioRef.nativeElement.play();
+        this.watchSlideWidth();
+      }, 0);
     } else {
-      this.audioRef.nativeElement.pause();
-      this.unWatchSlideWidth();
+      setTimeout(() => {
+        this.audioRef.nativeElement.pause();
+        this.unWatchSlideWidth();
+      }, 0);
     }
   }
 
@@ -85,18 +89,22 @@ export class StarryiuPlayerComponent implements OnInit, AfterViewInit {
   }
   //上一首 下一首
   prevMusic() {
+    let isPlay = this.play;
     let prevIndex = this.musicIndex - 1;
     if (prevIndex < 0) {
       prevIndex = this.musicList.length - 1;
     }
     this.musicIndex$.next(prevIndex);
+    isPlay && this.changePlay(true);
   }
   nextMusic() {
+    let isPlay = this.play;
     let nextIndex = this.musicIndex + 1;
     if (nextIndex > this.musicList.length - 1) {
       nextIndex = 0;
     }
     this.musicIndex$.next(nextIndex);
+    isPlay && this.changePlay(true);
   }
   //进度条
   slideWidth = 0;
