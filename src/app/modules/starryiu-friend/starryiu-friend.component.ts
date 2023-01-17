@@ -17,4 +17,13 @@ export class StarryiuFriendComponent implements OnInit {
       this.friends = friends;
     });
   }
+
+  avatarError(e: any) {
+    e.target.src =
+      'https://fastly.jsdelivr.net/gh/starryiu/PicGo-jsDelivr/PicGo/9e8fac15152ec6c1a6caace803203dd3.jpg';
+  }
+  coverError(e: any) {
+    e.target.src =
+      'https://fastly.jsdelivr.net/gh/chanshiyucx/yoi/bg/defaultCover.jpg';
+  }
 }

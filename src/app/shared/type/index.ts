@@ -63,7 +63,7 @@ export interface Essay {
 
 export interface Friend {
   avatar: string;
-  cover: SafeUrl;
+  cover: string;
   link: string;
   name: string;
 }
