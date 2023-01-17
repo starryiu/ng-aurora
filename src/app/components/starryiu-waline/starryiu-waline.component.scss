@@ -3,8 +3,17 @@
   textarea {
     outline: none;
   }
+  button,
+  label[title="上传图片"],
+  .wl-sort > li,
+  a.wl-nick {
+    @apply cursor-custom-link;
+  }
   button[title="表情包"] {
     display: none;
+  }
+  .wl-comment-actions > .wl-reply {
+    @apply ml-2;
   }
   @media screen and (max-width: 876px) {
     .wl-item {
@@ -15,9 +24,6 @@
     }
     .wl-comment-actions > .wl-like {
       display: none;
-    }
-    .wl-comment-actions > .wl-reply {
-      @apply cursor-custom-link;
     }
     label[title="上传图片"],
     .wl-text-number {

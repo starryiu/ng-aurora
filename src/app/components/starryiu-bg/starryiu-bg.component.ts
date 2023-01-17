@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import SwiperCore, { Autoplay, EffectFade, Lazy } from 'swiper';
-import { UtilsService } from '../../shared/utils.service';
 import __config from '../../../config';
 import { StoreService } from '../../shared/store.service';
 import { Theme } from '../../shared/type';
@@ -11,6 +10,7 @@ SwiperCore.use([EffectFade, Autoplay, Lazy]);
   selector: 'app-starryiu-bg',
   templateUrl: './starryiu-bg.component.html',
   styleUrls: ['./starryiu-bg.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class StarryiuBgComponent implements OnInit {
   touhouImages: string[] = __config.images.bg.touhou;
@@ -18,10 +18,7 @@ export class StarryiuBgComponent implements OnInit {
   theme: Theme = Theme.touhou;
   swiperDelay = 8000;
 
-  constructor(
-    private storeService: StoreService,
-    private utilsService: UtilsService
-  ) {}
+  constructor(private storeService: StoreService) {}
 
   clientType!: string;
   ngOnInit(): void {

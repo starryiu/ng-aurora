@@ -11,19 +11,26 @@
     <swiper
       class="w-full h-full"
       [loop]="true"
-      [effect]="'fade'"
+      effect="fade"
       [speed]="1000"
       [autoplay]="{
         delay: swiperDelay,
         disableOnInteraction: false
       }"
       [noSwiping]="true"
+      [lazy]="{
+        loadPrevNext: true,
+        loadPrevNextAmount: 2
+      }"
     >
       <ng-template swiperSlide *ngFor="let image of touhouImages">
         <img
-          class="w-full h-full object-cover pointer-events-none"
-          [src]="image"
+          [attr.data-src]="image"
+          class="swiper-lazy w-full h-full object-cover"
         />
+        <div
+          class="swiper-lazy-preloader swiper-lazy-preloader-white w-full h-full"
+        ></div>
       </ng-template>
     </swiper>
   </div>
@@ -38,12 +45,19 @@
         disableOnInteraction: false
       }"
       [noSwiping]="true"
+      [lazy]="{
+        loadPrevNext: true,
+        loadPrevNextAmount: 2
+      }"
     >
       <ng-template swiperSlide *ngFor="let image of schoolImages">
         <img
-          class="w-full h-full object-cover pointer-events-none"
-          [src]="image"
+          [attr.data-src]="image"
+          class="swiper-lazy w-full h-full object-cover"
         />
+        <div
+          class="swiper-lazy-preloader swiper-lazy-preloader-white w-full h-full"
+        ></div>
       </ng-template>
     </swiper>
   </ng-template>
