@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { SafeHtml } from '@angular/platform-browser';
 import { Cat, Sleaves } from '@icon-park/svg';
 import { UtilsService } from '../../shared/utils.service';
@@ -9,6 +9,7 @@ import { About } from '../../shared/type';
   selector: 'app-starryiu-about',
   templateUrl: './starryiu-about.component.html',
   styleUrls: ['./starryiu-about.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class StarryiuAboutComponent implements OnInit {
   countImages: string[] = [];
