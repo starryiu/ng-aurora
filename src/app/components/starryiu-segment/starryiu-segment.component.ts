@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, Input, OnInit } from '@angular/core';
 import { UtilsService } from '../../shared/utils.service';
 
 @Component({
   selector: 'app-starryiu-segment',
   templateUrl: './starryiu-segment.component.html',
   styleUrls: ['./starryiu-segment.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class StarryiuSegmentComponent implements OnInit {
   @Input() body: string = '';
