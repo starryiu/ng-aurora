@@ -40,8 +40,9 @@ module.exports = {
         "15px": ["15px", "27px"],
       },
       cursor: {
-        custom: 'url("/assets/cursor/cursor.png"), auto !important',
-        "custom-link": 'url("/assets/cursor/cursor_link.png"), auto !important',
+        custom: 'url("/assets/meipoli-cursor/cursor.png"), auto !important',
+        "custom-link":
+          'url("/assets/meipoli-cursor/cursor_link.png"), auto !important',
       },
       screens: {
         "s-md": { max: "876px" },
