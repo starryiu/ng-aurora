@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "test-swiper": {
+    "ng-aurora": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "test-swiper:build:production"
+              "browserTarget": "ng-aurora:build:production"
             },
             "development": {
-              "browserTarget": "test-swiper:build:development"
+              "browserTarget": "ng-aurora:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -75,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "test-swiper:build"
+            "browserTarget": "ng-aurora:build"
           }
         },
         "test": {
