@@ -5,3 +5,12 @@ span {
 .svg {
   @apply w-4 inline mr-0.5;
 }
+
+.article-body {
+  ul {
+    margin-bottom: 22.5px;
+  }
+  ul li {
+    list-style: disc;
+  }
+}
