@@ -3,9 +3,6 @@
     <div
       class="flex w-49.2% s-md:w-full mb-4 bg-white bg-opacity-80 rounded overflow-hidden transition duration-500 shadow-card hover:shadow-card-hover hover:-translate-y-1.5"
       *ngFor="let article of articles"
-      data-aos="fade-up"
-      data-aos-duration="1400"
-      data-aos-offset="30"
     >
       <a [routerLink]="['/post', article.number]" class="inline-flex flex-col">
         <div class="relative">
