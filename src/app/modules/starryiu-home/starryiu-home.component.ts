@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { CalendarDot, Tag, BookmarkOne } from '@icon-park/svg';
+// @ts-ignore
+import AOS from 'aos';
 import { UtilsService } from '../../shared/utils.service';
 import { ApiService } from '../../shared/api.service';
 import { HomeArticle } from '../../shared/type';
@@ -10,7 +12,7 @@ import { StoreService } from '../../shared/store.service';
   templateUrl: './starryiu-home.component.html',
   styleUrls: ['./starryiu-home.component.scss'],
 })
-export class StarryiuHomeComponent implements OnInit {
+export class StarryiuHomeComponent implements OnInit, AfterViewInit {
   articles: HomeArticle[] = [];
   calendarIcon = this.utilsService.getIconPark(CalendarDot({}));
   tagIcon = this.utilsService.getIconPark(Tag({}));
@@ -48,5 +50,8 @@ export class StarryiuHomeComponent implements OnInit {
       this.pageIndex = value;
       this.loadArticles(this.pageIndex, 10);
     });
+  }
+  ngAfterViewInit(): void {
+    AOS.init();
   }
 }
