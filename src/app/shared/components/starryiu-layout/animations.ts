@@ -44,7 +44,7 @@ export const routeFadeAnimation = trigger('routeFadeAnimation', [
             transform: 'translateY(-30px)',
           }),
           animate(
-            '0.45s ease-in',
+            '0.9s cubic-bezier(.09,.38,.77,.99)',
             style({ opacity: 1, transform: 'translateY(0)' })
           ),
         ],
