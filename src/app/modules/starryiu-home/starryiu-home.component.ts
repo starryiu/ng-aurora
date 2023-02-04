@@ -61,7 +61,7 @@ export class StarryiuHomeComponent implements OnInit, AfterViewInit, OnDestroy {
     entries.forEach((entry: any) => {
       if (entry.intersectionRatio > 0) {
         entry.target.classList.remove('duration-500');
-        entry.target.classList.remove('translate-y-10');
+        entry.target.classList.remove('translate-y-14');
         entry.target.classList.add('duration-700');
         entry.target.classList.add('translate-y-0');
       }
@@ -69,7 +69,7 @@ export class StarryiuHomeComponent implements OnInit, AfterViewInit, OnDestroy {
         entry.target.classList.remove('duration-700');
         entry.target.classList.remove('translate-y-0');
         entry.target.classList.add('duration-500');
-        entry.target.classList.add('translate-y-10');
+        entry.target.classList.add('translate-y-14');
       }
     });
   };
