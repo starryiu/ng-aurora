@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChildren,
+} from '@angular/core';
 import { CalendarDot, Tag, BookmarkOne } from '@icon-park/svg';
 import { UtilsService } from '../../shared/utils.service';
 import { ApiService } from '../../shared/api.service';
@@ -10,7 +16,7 @@ import { StoreService } from '../../shared/store.service';
   templateUrl: './starryiu-home.component.html',
   styleUrls: ['./starryiu-home.component.scss'],
 })
-export class StarryiuHomeComponent implements OnInit {
+export class StarryiuHomeComponent implements OnInit, AfterViewInit, OnDestroy {
   articles: HomeArticle[] = [];
   calendarIcon = this.utilsService.getIconPark(CalendarDot({}));
   tagIcon = this.utilsService.getIconPark(Tag({}));
@@ -33,6 +39,55 @@ export class StarryiuHomeComponent implements OnInit {
       this.articles = articles;
       this.pageLoading = false;
     });
+  }
+
+  /**
+   * 卡片监听
+   */
+  @ViewChildren('articleCards') articleCards!: any;
+  articleCardsRef = [];
+  changeArticleCardsRef(val: any) {
+    if (this.articleCardsRef?.length > 0) {
+      this.articleCardsRef.map((articleCardRef: any) => {
+        this.observer.unobserve(articleCardRef);
+      });
+    }
+    this.articleCardsRef = val;
+    this.articleCardsRef.map((articleCardRef: any) => {
+      this.observer.observe(articleCardRef);
+    });
+  }
+  observerArticleCards = (entries: any) => {
+    entries.forEach((entry: any) => {
+      if (entry.intersectionRatio > 0) {
+        entry.target.classList.remove('duration-500');
+        entry.target.classList.remove('translate-y-10');
+        entry.target.classList.add('duration-700');
+        entry.target.classList.add('translate-y-0');
+      }
+      if (entry.intersectionRatio === 0 && entry.boundingClientRect.top > 0) {
+        entry.target.classList.remove('duration-700');
+        entry.target.classList.remove('translate-y-0');
+        entry.target.classList.add('duration-500');
+        entry.target.classList.add('translate-y-10');
+      }
+    });
+  };
+  observer = new IntersectionObserver(this.observerArticleCards);
+  ngAfterViewInit() {
+    this.articleCardsRef = [];
+    this.articleCards.changes.subscribe((r: any) => {
+      this.changeArticleCardsRef(
+        this.articleCards._results.map(
+          (articleCard: { nativeElement: any }) => {
+            return articleCard.nativeElement;
+          }
+        )
+      );
+    });
+  }
+  ngOnDestroy(): void {
+    this.observer.disconnect();
   }
 
   constructor(
