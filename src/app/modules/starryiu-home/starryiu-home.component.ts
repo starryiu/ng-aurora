@@ -45,18 +45,6 @@ export class StarryiuHomeComponent implements OnInit, AfterViewInit, OnDestroy {
    * 卡片监听
    */
   @ViewChildren('articleCards') articleCards!: any;
-  articleCardsRef = [];
-  changeArticleCardsRef(val: any) {
-    if (this.articleCardsRef?.length > 0) {
-      this.articleCardsRef.map((articleCardRef: any) => {
-        this.observer.unobserve(articleCardRef);
-      });
-    }
-    this.articleCardsRef = val;
-    this.articleCardsRef.map((articleCardRef: any) => {
-      this.observer.observe(articleCardRef);
-    });
-  }
   observerArticleCards = (entries: any) => {
     entries.forEach((entry: any) => {
       if (entry.intersectionRatio > 0) {
@@ -74,8 +62,14 @@ export class StarryiuHomeComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   };
   observer = new IntersectionObserver(this.observerArticleCards);
+  changeArticleCardsRef(val: any) {
+    this.observer.disconnect();
+    this.observer = new IntersectionObserver(this.observerArticleCards);
+    val.map((articleCardRef: any) => {
+      this.observer.observe(articleCardRef);
+    });
+  }
   ngAfterViewInit() {
-    this.articleCardsRef = [];
     this.articleCards.changes.subscribe((r: any) => {
       this.changeArticleCardsRef(
         this.articleCards._results.map(
