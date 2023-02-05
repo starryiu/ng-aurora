@@ -61,9 +61,13 @@ export class StarryiuHomeComponent implements OnInit, AfterViewInit, OnDestroy {
       }
     });
   };
-  observer = new IntersectionObserver(this.observerArticleCards);
-  changeArticleCardsRef(val: any) {
+  observer: any = new IntersectionObserver(this.observerArticleCards);
+  stopObserver() {
     this.observer.disconnect();
+    this.observer = null;
+  }
+  changeArticleCardsRef(val: any) {
+    this.stopObserver();
     this.observer = new IntersectionObserver(this.observerArticleCards);
     val.map((articleCardRef: any) => {
       this.observer.observe(articleCardRef);
@@ -81,7 +85,7 @@ export class StarryiuHomeComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
   ngOnDestroy(): void {
-    this.observer.disconnect();
+    this.stopObserver();
   }
 
   constructor(
