@@ -41,6 +41,7 @@ import { LabelsFormatPipe } from './pipes/labels-format.pipe';
 import { StarryiuRequestInterceptor } from './interceptor/starryiu-request.interceptor';
 import { HeaderProgressComponent } from './components/header-progress/header-progress.component';
 import { StarryiuWalineComponent } from './components/starryiu-waline/starryiu-waline.component';
+import { StarryiuSnowComponent } from './components/starryiu-snow/starryiu-snow.component';
 @NgModule({
   declarations: [
     TimeagoPipe,
@@ -75,6 +76,7 @@ import { StarryiuWalineComponent } from './components/starryiu-waline/starryiu-w
     StarryiuContentComponent,
     HeaderProgressComponent,
     StarryiuWalineComponent,
+    StarryiuSnowComponent,
   ],
   imports: [
     BrowserModule,

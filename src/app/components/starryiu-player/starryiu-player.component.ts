@@ -115,7 +115,6 @@ export class StarryiuPlayerComponent implements OnInit, AfterViewInit {
       this.slideWidth = Number(
         ((audio.currentTime / audio.duration) * 100).toFixed(2)
       );
-      console.log(audio.ended);
       audio.ended && this.nextMusic();
     });
   }
