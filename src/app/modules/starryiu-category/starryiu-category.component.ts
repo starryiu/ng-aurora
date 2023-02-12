@@ -55,7 +55,6 @@ export class StarryiuCategoryComponent implements OnInit {
       pageIndex: page,
       selectCategory: this.selectCategory,
     });
-    this.loadArticlesByCategory(this.selectCategory, this.pageIndex, 10);
   }
 
   constructor(

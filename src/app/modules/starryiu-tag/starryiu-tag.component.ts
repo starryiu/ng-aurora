@@ -55,7 +55,6 @@ export class StarryiuTagComponent implements OnInit {
       pageIndex: page,
       selectLabel: this.selectLabel,
     });
-    this.loadArticleByLabel(this.selectLabel, this.pageIndex, 10);
   }
 
   constructor(

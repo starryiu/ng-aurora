@@ -20,7 +20,6 @@ export class StarryiuArchiveComponent implements OnInit {
   pageLoading = false;
   changePage(page: number) {
     this.storeService.changeArchivePageIndexSource(page);
-    this.loadArchiveArticles(this.pageIndex, 10);
   }
 
   loadArchiveArticles(page: number, limit: number) {

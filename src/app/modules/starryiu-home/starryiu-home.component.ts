@@ -30,7 +30,6 @@ export class StarryiuHomeComponent implements OnInit, AfterViewInit, OnDestroy {
   pageLoading = false;
   changePage(page: number) {
     this.storeService.changeHomePageIndexSource(page);
-    this.loadArticles(this.pageIndex, 10);
   }
 
   loadArticles(page: number, limit: number) {
