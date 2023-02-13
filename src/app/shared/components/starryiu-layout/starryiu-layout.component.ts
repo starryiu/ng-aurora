@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ChildrenOutletContexts } from '@angular/router';
 import { throttle as __throttle } from 'lodash';
 import { routeFadeAnimation } from './animations';
@@ -10,7 +10,7 @@ import { StoreService } from '../../store.service';
   styleUrls: ['./starryiu-layout.component.scss'],
   animations: [routeFadeAnimation],
 })
-export class StarryiuLayoutComponent implements OnInit {
+export class StarryiuLayoutComponent implements OnInit, AfterViewInit {
   getRouteAnimationData() {
     return this.contexts.getContext('primary')?.route?.snapshot?.data?.[
       'animation'
@@ -30,5 +30,9 @@ export class StarryiuLayoutComponent implements OnInit {
   ngOnInit(): void {
     this.watchWindowWidth();
     window.addEventListener('resize', this.watchWindowWidth);
+  }
+  showLayout = false;
+  ngAfterViewInit(): void {
+    this.showLayout = true;
   }
 }
