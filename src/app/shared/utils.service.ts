@@ -129,13 +129,8 @@ export class UtilsService {
   }
 
   //滚动到顶部
-  // @ts-ignore
-  scroll = new SmoothScroll();
   backTop() {
-    this.scroll.animateScroll(0, null, {
-      speed: 600,
-      speedAsDuration: true,
-    });
+    window.scroll({ top: 0, behavior: 'smooth' });
   }
 
   //加载图片

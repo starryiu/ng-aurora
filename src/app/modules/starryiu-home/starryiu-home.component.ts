@@ -3,6 +3,7 @@ import {
   Component,
   OnDestroy,
   OnInit,
+  QueryList,
   ViewChildren,
 } from '@angular/core';
 import { CalendarDot, Tag, BookmarkOne } from '@icon-park/svg';
@@ -43,16 +44,18 @@ export class StarryiuHomeComponent implements OnInit, AfterViewInit, OnDestroy {
   /**
    * 卡片监听
    */
-  @ViewChildren('articleCards') articleCards!: any;
-  observerArticleCards = (entries: any) => {
-    entries.forEach((entry: any) => {
+  @ViewChildren('articleCards') articleCards!: QueryList<any>;
+  observerArticleCards = (entries: IntersectionObserverEntry[]) => {
+    entries.forEach((entry: IntersectionObserverEntry) => {
       if (entry.intersectionRatio > 0) {
         entry.target.classList.remove('duration-500');
         entry.target.classList.remove('translate-y-14');
         entry.target.classList.add('duration-700');
         entry.target.classList.add('translate-y-0');
-      }
-      if (entry.intersectionRatio === 0 && entry.boundingClientRect.top > 0) {
+      } else if (
+        entry.intersectionRatio === 0 &&
+        entry.boundingClientRect.top > 0
+      ) {
         entry.target.classList.remove('duration-700');
         entry.target.classList.remove('translate-y-0');
         entry.target.classList.add('duration-500');
@@ -60,31 +63,19 @@ export class StarryiuHomeComponent implements OnInit, AfterViewInit, OnDestroy {
       }
     });
   };
-  observer: any = new IntersectionObserver(this.observerArticleCards);
-  stopObserver() {
-    this.observer.disconnect();
-    this.observer = null;
-  }
-  changeArticleCardsRef(val: any) {
-    this.stopObserver();
-    this.observer = new IntersectionObserver(this.observerArticleCards);
-    val.map((articleCardRef: any) => {
-      this.observer.observe(articleCardRef);
-    });
-  }
+  observer: IntersectionObserver = new IntersectionObserver(
+    this.observerArticleCards
+  );
   ngAfterViewInit() {
-    this.articleCards.changes.subscribe((r: any) => {
-      this.changeArticleCardsRef(
-        this.articleCards._results.map(
-          (articleCard: { nativeElement: any }) => {
-            return articleCard.nativeElement;
-          }
-        )
-      );
+    this.articleCards.changes.subscribe(() => {
+      this.observer.disconnect();
+      this.articleCards.map((articleCard) => {
+        this.observer.observe(articleCard.nativeElement);
+      });
     });
   }
   ngOnDestroy(): void {
-    this.stopObserver();
+    this.observer.disconnect();
   }
 
   constructor(
