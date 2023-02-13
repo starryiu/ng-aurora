@@ -27,7 +27,6 @@ specifiers:
   marked: ^4.0.18
   postcss: ^8.4.14
   rxjs: ~7.5.0
-  snowjs: ^1.0.1
   swiper: ^8.3.1
   tailwindcss: ^3.1.6
   timeago.js: ^4.0.2
@@ -48,7 +47,6 @@ dependencies:
   lodash: 4.17.21
   marked: 4.0.18
   rxjs: 7.5.6
-  snowjs: 1.0.1
   swiper: 8.3.1
   timeago.js: 4.0.2
   tslib: 2.4.0
@@ -69,7 +67,7 @@ devDependencies:
   karma-jasmine: 5.0.1_karma@6.3.20
   karma-jasmine-html-reporter: 1.7.0_vkuxrcz7dkokejy2pe2kfqtj5q
   postcss: 8.4.14
-  tailwindcss: 3.1.6_postcss@8.4.14
+  tailwindcss: 3.1.6
   typescript: 4.7.4
 
 packages:
@@ -173,7 +171,7 @@ packages:
       source-map-support: 0.5.21
       stylus: 0.57.0
       stylus-loader: 6.2.0_ay64gns3hzwkz7vfnhtaeofsfy
-      tailwindcss: 3.1.6_postcss@8.4.14
+      tailwindcss: 3.1.6
       terser: 5.13.1
       text-table: 0.2.0
       tree-kill: 1.2.2
@@ -6538,10 +6536,6 @@ packages:
     engines: {node: '>= 6.0.0', npm: '>= 3.0.0'}
     dev: true
 
-  /snowjs/1.0.1:
-    resolution: {integrity: sha512-etO4vkHt/ncjZ0RhuV6YHY5GYXFm0G01zwvEkFxRZhwuPDTvImZ1j48D7Db6NX1eGRgndUd8j6dkFQS5glR12Q==}
-    dev: false
-
   /socket.io-adapter/2.4.0:
     resolution: {integrity: sha512-W4N+o69rkMEGVuk2D/cvca3uYsvGlMwsySWV447y99gUPghxq42BxqLNMndb+a1mm/5/7NeXVQS7RLa2XyXvYg==}
     dev: true
@@ -6861,12 +6855,10 @@ packages:
     engines: {node: '>=0.10'}
     dev: true
 
-  /tailwindcss/3.1.6_postcss@8.4.14:
+  /tailwindcss/3.1.6:
     resolution: {integrity: sha512-7skAOY56erZAFQssT1xkpk+kWt2NrO45kORlxFPXUt3CiGsVPhH1smuH5XoDH6sGPXLyBv+zgCKA2HWBsgCytg==}
     engines: {node: '>=12.13.0'}
     hasBin: true
-    peerDependencies:
-      postcss: ^8.0.9
     dependencies:
       arg: 5.0.2
       chokidar: 3.5.3
