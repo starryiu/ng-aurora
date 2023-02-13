@@ -132,7 +132,7 @@ export class UtilsService {
   backTop() {
     setTimeout(() => {
       window.scroll({ top: 0, behavior: 'smooth' });
-    }, 10);
+    }, 100);
   }
 
   //加载图片
