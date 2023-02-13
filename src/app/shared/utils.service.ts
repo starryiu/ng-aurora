@@ -130,7 +130,9 @@ export class UtilsService {
 
   //滚动到顶部
   backTop() {
-    window.scroll({ top: 0, behavior: 'smooth' });
+    setTimeout(() => {
+      window.scroll({ top: 0, behavior: 'smooth' });
+    }, 10);
   }
 
   //加载图片
