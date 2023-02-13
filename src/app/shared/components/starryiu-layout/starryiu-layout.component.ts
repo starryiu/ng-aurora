@@ -10,7 +10,7 @@ import { StoreService } from '../../store.service';
   styleUrls: ['./starryiu-layout.component.scss'],
   animations: [routeFadeAnimation],
 })
-export class StarryiuLayoutComponent implements OnInit, AfterViewInit {
+export class StarryiuLayoutComponent implements OnInit {
   getRouteAnimationData() {
     return this.contexts.getContext('primary')?.route?.snapshot?.data?.[
       'animation'
@@ -26,13 +26,8 @@ export class StarryiuLayoutComponent implements OnInit, AfterViewInit {
     let type = document.body.clientWidth > 876 ? 'PC' : 'Mobile';
     this.storeService.changeClientTypeSource(type);
   }, 300);
-
   ngOnInit(): void {
     this.watchWindowWidth();
     window.addEventListener('resize', this.watchWindowWidth);
-  }
-  showLayout = false;
-  ngAfterViewInit(): void {
-    this.showLayout = true;
   }
 }
