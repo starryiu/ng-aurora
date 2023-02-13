@@ -129,8 +129,10 @@ export class UtilsService {
   }
 
   //滚动到顶部
+  backTopTimerId: number | null = null;
   backTop() {
-    setTimeout(() => {
+    this.backTopTimerId && clearTimeout(this.backTopTimerId);
+    this.backTopTimerId = setTimeout(() => {
       window.scroll({ top: 0, behavior: 'smooth' });
     }, 100);
   }
