@@ -11,6 +11,7 @@ import { UtilsService } from '../../shared/utils.service';
 import { ApiService } from '../../shared/api.service';
 import { HomeArticle } from '../../shared/type';
 import { StoreService } from '../../shared/store.service';
+import __config from '../../../config';
 
 @Component({
   selector: 'app-starryiu-home',
@@ -18,7 +19,6 @@ import { StoreService } from '../../shared/store.service';
   styleUrls: ['./starryiu-home.component.scss'],
 })
 export class StarryiuHomeComponent implements OnInit, AfterViewInit, OnDestroy {
-  articles: HomeArticle[] = [];
   calendarIcon = this.utilsService.getIconPark(CalendarDot({}));
   tagIcon = this.utilsService.getIconPark(Tag({}));
   bookmarkOneIcon = this.utilsService.getIconPark(BookmarkOne({}));
@@ -32,7 +32,7 @@ export class StarryiuHomeComponent implements OnInit, AfterViewInit, OnDestroy {
   changePage(page: number) {
     this.storeService.changeHomePageIndexSource(page);
   }
-
+  articles: HomeArticle[] = [];
   loadArticles(page: number, limit: number) {
     this.pageLoading = true;
     this.apiService.getHomeArticles(page, limit).subscribe((articles) => {
@@ -83,6 +83,8 @@ export class StarryiuHomeComponent implements OnInit, AfterViewInit, OnDestroy {
     private apiService: ApiService,
     private storeService: StoreService
   ) {}
+
+  loadingCover = '';
   ngOnInit(): void {
     this.apiService.getOpenArticleCount().subscribe((articleCount) => {
       this.pageTotal = articleCount as number;
@@ -91,5 +93,6 @@ export class StarryiuHomeComponent implements OnInit, AfterViewInit, OnDestroy {
       this.pageIndex = value;
       this.loadArticles(this.pageIndex, 10);
     });
+    this.loadingCover = __config.images.loadingCover;
   }
 }
