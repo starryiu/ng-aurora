@@ -24,15 +24,17 @@ export default {
    */
   images: {
     loadingCover:
-      'https://fastly.jsdelivr.net/gh/chanshiyucx/yoi/blog/loading.gif',
-    sakura: 'https://fastly.jsdelivr.net/gh/chanshiyucx/yoi/blog/sakura.png',
-    reimu: 'https://fastly.jsdelivr.net/gh/chanshiyucx/yoi/blog/reimu.png',
+      'https://s-bj-1658-tools.oss.dogecdn.com/resource/51cbb77dbc64c6823c87e1b9e1135ef5---loading.gif',
+    sakura:
+      'https://s-bj-1658-tools.oss.dogecdn.com/resource/98c59676e15f000efffde70659699895---sakura.png',
+    reimu:
+      'https://s-bj-1658-tools.oss.dogecdn.com/resource/cca27d2bf700648c61d88385e7146174---reimu.png',
     bg: {
       preview: {
         touhou:
-          'https://fastly.jsdelivr.net/gh/chanshiyucx/yoi/blog/touhou.png',
+          'https://s-bj-1658-tools.oss.dogecdn.com/resource/86fdf8daaa98ff411f009696c30ab8f0---touhou.png',
         school:
-          'https://fastly.jsdelivr.net/gh/chanshiyucx/yoi/blog/school.jpg',
+          'https://s-bj-1658-tools.oss.dogecdn.com/resource/df746c5ce5fc793eccb8e50960634fc7---school.jpg',
       },
       touhou: [
         'https://s-bj-1658-tools.oss.dogecdn.com/resource/10fc2addb538af291fa5b25c1095cf9e---fb0126be1fb4c7d3aeeedff1fa187087afda711a.jpg',
@@ -95,4 +97,8 @@ export default {
         '//fastly.jsdelivr.net/gh/starryiu/PicGo-jsDelivr/PicGo/c6379a49b03b7b3b8c99d00325b0997b.jpg',
     },
   ],
+  github: {
+    GITHUB_USER: 'starryiu',
+    GITHUB_ROPO: 'aurora-article',
+  },
 };

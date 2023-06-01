@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { omit as __omit, pick as __pick, unionBy as __unionBy } from 'lodash';
 import { HttpClient } from '@angular/common/http';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
 import { UtilsService } from './utils.service';
 import {
@@ -14,14 +15,14 @@ import {
   PageLabels,
   Resource,
 } from './type';
-import { DomSanitizer } from '@angular/platform-browser';
+import __config from '../../config';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
-  GITHUB_USER = 'starryiu';
-  GITHUB_ROPO = 'aurora-article';
+  GITHUB_USER = __config.github.GITHUB_USER;
+  GITHUB_ROPO = __config.github.GITHUB_ROPO;
   GITHUB_API = `https://api.github.com/repos/${this.GITHUB_USER}/${this.GITHUB_ROPO}`;
 
   private pickPostData(datas: any) {
