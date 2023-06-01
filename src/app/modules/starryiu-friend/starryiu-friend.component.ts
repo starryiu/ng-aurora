@@ -24,6 +24,6 @@ export class StarryiuFriendComponent implements OnInit {
   }
   coverError(e: any) {
     e.target.src =
-      'https://fastly.jsdelivr.net/gh/chanshiyucx/yoi/bg/defaultCover.jpg';
+      'https://s-bj-1658-tools.oss.dogecdn.com/resource/a6f2da1112160fefe5325be750e4510d---defaultCover.jpg';
   }
 }
