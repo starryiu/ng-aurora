@@ -45,7 +45,9 @@ export class StarryiuArticleComponent
   gallery!: any;
   ngAfterViewInit(): void {
     //@ts-ignore
-    this.gallery = new Viewer(this.articleBodyRef.nativeElement);
+    this.gallery = new Viewer(this.articleBodyRef.nativeElement, {
+      title: false,
+    });
   }
   ngOnDestroy(): void {
     this.gallery = null;

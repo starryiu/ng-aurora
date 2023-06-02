@@ -33,7 +33,9 @@ export class StarryiuSegmentComponent implements OnInit {
   gallery!: any;
   ngAfterViewInit(): void {
     //@ts-ignore
-    this.gallery = new Viewer(this.segmentBodyRef.nativeElement);
+    this.gallery = new Viewer(this.segmentBodyRef.nativeElement, {
+      title: false,
+    });
   }
   ngOnDestroy(): void {
     this.gallery = null;
