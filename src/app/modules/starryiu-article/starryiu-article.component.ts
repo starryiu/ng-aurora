@@ -1,4 +1,12 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+  ViewEncapsulation,
+} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CalendarDot, Tag, BookmarkOne } from '@icon-park/svg';
 import { UtilsService } from '../../shared/utils.service';
@@ -10,7 +18,9 @@ import { Article } from '../../shared/type';
   styleUrls: ['./starryiu-article.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class StarryiuArticleComponent implements OnInit {
+export class StarryiuArticleComponent
+  implements OnInit, AfterViewInit, OnDestroy
+{
   article!: Article;
   calendarIcon = this.utilsService.getIconPark(CalendarDot({}));
   tagIcon = this.utilsService.getIconPark(Tag({}));
@@ -26,5 +36,18 @@ export class StarryiuArticleComponent implements OnInit {
       this.article = data?.article;
       this.utilsService.backTop();
     });
+  }
+
+  /**
+   * 文章图片预览
+   */
+  @ViewChild('articleBody') articleBodyRef!: ElementRef;
+  gallery!: any;
+  ngAfterViewInit(): void {
+    //@ts-ignore
+    this.gallery = new Viewer(this.articleBodyRef.nativeElement);
+  }
+  ngOnDestroy(): void {
+    this.gallery = null;
   }
 }

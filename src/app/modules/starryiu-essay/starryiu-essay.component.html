@@ -4,7 +4,7 @@
     <app-starryiu-segment
       *ngFor="let data of essay"
       [body]="data.body"
-      [title]="data.created_at | date: 'y年M月d日'"
+      [title]="data.created_at | date : 'y年M月d日'"
     ></app-starryiu-segment>
     <app-starryiu-pagination
       *ngIf="pageTotal"

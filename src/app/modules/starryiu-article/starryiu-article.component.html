@@ -31,7 +31,7 @@
       </div>
     </div>
     <div class="p-6 s-md:p-2.5 code-card article-body">
-      <div [innerHTML]="article.body | marked"></div>
+      <div #articleBody [innerHTML]="article.body | marked"></div>
     </div>
   </div>
 </app-starryiu-content>

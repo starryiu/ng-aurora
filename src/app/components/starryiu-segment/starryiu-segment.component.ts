@@ -1,4 +1,11 @@
-import { Component, ViewEncapsulation, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  ViewEncapsulation,
+  Input,
+  OnInit,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 import { UtilsService } from '../../shared/utils.service';
 
 @Component({
@@ -17,5 +24,18 @@ export class StarryiuSegmentComponent implements OnInit {
 
   ngOnInit(): void {
     this.color = this.utilsService.getRandomColor();
+  }
+
+  /**
+   * 文章图片预览
+   */
+  @ViewChild('segmentBody') segmentBodyRef!: ElementRef;
+  gallery!: any;
+  ngAfterViewInit(): void {
+    //@ts-ignore
+    this.gallery = new Viewer(this.segmentBodyRef.nativeElement);
+  }
+  ngOnDestroy(): void {
+    this.gallery = null;
   }
 }
