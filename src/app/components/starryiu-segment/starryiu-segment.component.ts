@@ -38,6 +38,7 @@ export class StarryiuSegmentComponent implements OnInit {
     });
   }
   ngOnDestroy(): void {
+    this.gallery.destroy();
     this.gallery = null;
   }
 }

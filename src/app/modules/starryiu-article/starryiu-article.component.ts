@@ -50,6 +50,7 @@ export class StarryiuArticleComponent
     });
   }
   ngOnDestroy(): void {
+    this.gallery.destroy();
     this.gallery = null;
   }
 }
