@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { ArticleInfo, LoadImageType } from './type';
 import __config from '../../config';
 
+type metaKeyValueObjType = Record<string, string>;
+
 @Injectable({
   providedIn: 'root',
 })
@@ -161,6 +163,28 @@ export class UtilsService {
         observer.complete();
       };
     });
+  }
+  //复原网站标题
+  resetSiteTitle() {
+    if (document) {
+      document.title =
+        __config.siteInfo.siteTitle + ' | ' + __config.siteInfo.siteSubTitle;
+    }
+  }
+  //更改网站标题
+  changeSiteTitle(title: string) {
+    if (document && title) {
+      document.title = __config.siteInfo.siteTitle + ' | ' + title;
+    }
+  }
+
+  //添加meta标签
+  addMetaTag(metaKeyValueObj: metaKeyValueObjType) {
+    const meta: any = document.createElement('meta');
+    Object.keys(metaKeyValueObj).forEach((key) => {
+      meta[key] = metaKeyValueObj[key];
+    });
+    document.getElementsByTagName('head')[0].prepend(meta);
   }
 
   constructor(private sanitizer: DomSanitizer) {}

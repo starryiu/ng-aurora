@@ -1,4 +1,9 @@
 export default {
+  siteInfo: {
+    siteTitle: '魔法方',
+    siteSubTitle: '世界充满了魔法与方块',
+    keywords: 'Code, ACG, Aurora, 魔法方',
+  },
   /**
    * 基础配置
    */

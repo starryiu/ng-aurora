@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CalendarDot, Tag, BookmarkOne } from '@icon-park/svg';
 import { UtilsService } from '../../shared/utils.service';
 import { Article } from '../../shared/type';
+import __config from '../../../config';
 
 @Component({
   selector: 'app-starryiu-article',
@@ -34,6 +35,8 @@ export class StarryiuArticleComponent
   ngOnInit(): void {
     this.route.data.subscribe((data: any) => {
       this.article = data?.article;
+      //更改网站标题
+      this.utilsService.changeSiteTitle(this.article.title);
       this.utilsService.backTop();
     });
   }
@@ -52,5 +55,7 @@ export class StarryiuArticleComponent
   ngOnDestroy(): void {
     this.gallery.destroy();
     this.gallery = null;
+    //复原网站标题
+    this.utilsService.resetSiteTitle();
   }
 }
