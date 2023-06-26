@@ -1,0 +1,43 @@
+.article-image {
+  display: none;
+}
+.article-image.active {
+  display: block;
+}
+.article-image-loading {
+  display: flex;
+  justify-content: center;
+}
+.article-image-loading.hide {
+  display: none;
+}
+@keyframes loader21 {
+  0% {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(1, 0.3);
+  }
+}
+.loader-21 div {
+  @apply bg-purple;
+  width: 4px;
+  height: 20px;
+  border-radius: 2px;
+  display: inline-block;
+}
+.loader-21 div:nth-child(1) {
+  animation: loader21 0.5s -0.3s ease-in-out infinite alternate;
+}
+.loader-21 div:nth-child(2) {
+  animation: loader21 0.5s -0.15s ease-in-out infinite alternate;
+}
+.loader-21 div:nth-child(3) {
+  animation: loader21 0.5s 0s ease-in-out infinite alternate;
+}
+.loader-21 div:nth-child(4) {
+  animation: loader21 0.5s -0.15s ease-in-out infinite alternate;
+}
+.loader-21 div:nth-child(5) {
+  animation: loader21 0.5s -0.4s ease-in-out infinite alternate;
+}

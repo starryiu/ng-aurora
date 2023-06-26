@@ -5,7 +5,20 @@ import { marked } from 'marked';
 const renderer = {
   // 图片处理
   image: (href: string, title: string | null, text: string | null) => {
-    return `<div><img class="article-image" src="${href}" alt="${text}"></div>`;
+    return `<div class="article-image-box">
+      <img class="article-image" src="${href}" alt="${text}">
+      <span class="article-image-loading"">
+          <div class="loader21 loader">
+            <div class="loader-21">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+      </span>
+    </div>`;
   },
 };
 marked.setOptions({
