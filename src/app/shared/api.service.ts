@@ -156,12 +156,10 @@ export class ApiService {
       this.http
         .get(`${this.GITHUB_API}/issues?state=closed&labels=Resource`)
         .subscribe((data: any) => {
-          let formatBody = this.utilsService.formatPage(data[0], 'resource');
-          formatBody.map((o: any) => {
-            o.cover = this.sanitizer.bypassSecurityTrustUrl(o.cover);
-            return o;
-          });
-          observer.next(formatBody);
+          let datas = this.utilsService.formatPage(data[0], 'resource');
+          observer.next(
+            datas.map((data: Resource) => Object.assign(data, { cover: '' }))
+          );
           observer.complete();
         });
     });
