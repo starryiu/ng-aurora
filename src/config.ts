@@ -29,17 +29,17 @@ export default {
    */
   images: {
     loadingCover:
-      'https://s-bj-1658-tools.oss.dogecdn.com/resource/51cbb77dbc64c6823c87e1b9e1135ef5---loading.gif',
+      'https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/51cbb77dbc64c6823c87e1b9e1135ef5---loading.gif',
     sakura:
-      'https://s-bj-1658-tools.oss.dogecdn.com/resource/98c59676e15f000efffde70659699895---sakura.png',
+      'https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/98c59676e15f000efffde70659699895---sakura.pngg',
     reimu:
-      'https://s-bj-1658-tools.oss.dogecdn.com/resource/cca27d2bf700648c61d88385e7146174---reimu.png',
+      'https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/cca27d2bf700648c61d88385e7146174---reimu.png',
     bg: {
       preview: {
         touhou:
-          'https://s-bj-1658-tools.oss.dogecdn.com/resource/86fdf8daaa98ff411f009696c30ab8f0---touhou.png',
+          'https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/86fdf8daaa98ff411f009696c30ab8f0---touhou.png',
         school:
-          'https://s-bj-1658-tools.oss.dogecdn.com/resource/df746c5ce5fc793eccb8e50960634fc7---school.jpg',
+          'https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/df746c5ce5fc793eccb8e50960634fc7---school.jpg',
       },
       touhou: [
         'https://s-bj-1658-tools.oss.dogecdn.com/resource/10fc2addb538af291fa5b25c1095cf9e---fb0126be1fb4c7d3aeeedff1fa187087afda711a.jpg',
@@ -80,13 +80,6 @@ export default {
       cover:
         '//s-sh-1658-mycunchu.oss.dogecdn.com/MP3/Snipaste_2022-08-31_22-10-08.png',
     },
-    // {
-    //   name: '稻香',
-    //   artist: '周杰伦',
-    //   url: '//s-sh-1658-mycunchu.oss.dogecdn.com/MP3%2F11.-%E7%A8%BB-%E9%A6%99.mp3',
-    //   cover:
-    //     '//fastly.jsdelivr.net/gh/starryiu/PicGo-jsDelivr/PicGo/d4339cc3859d52b676f5cc8ee327115e.jpg',
-    // },
     {
       name: '11月の雨',
       artist: 'CHiCO',
