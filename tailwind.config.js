@@ -50,7 +50,7 @@ module.exports = {
       },
       backgroundImage: {
         "header-bg-mobile":
-          "url('https://s-bj-1658-tools.oss.dogecdn.com/resource/cc6d3bccdadf26e64f52318e942c757e---mobile.jpg')",
+          "url('https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/cc6d3bccdadf26e64f52318e942c757e---mobile.jpg')",
       },
       rotate: {
         360: "360deg",

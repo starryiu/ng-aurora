@@ -20,10 +20,10 @@ export class StarryiuFriendComponent implements OnInit {
 
   avatarError(e: any) {
     e.target.src =
-      'https://fastly.jsdelivr.net/gh/starryiu/PicGo-jsDelivr/PicGo/9e8fac15152ec6c1a6caace803203dd3.jpg';
+      'https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/9e8fac15152ec6c1a6caace803203dd3.jpg';
   }
   coverError(e: any) {
     e.target.src =
-      'https://s-bj-1658-tools.oss.dogecdn.com/resource/a6f2da1112160fefe5325be750e4510d---defaultCover.jpg';
+      'https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/a6f2da1112160fefe5325be750e4510d---defaultCover.jpg';
   }
 }
