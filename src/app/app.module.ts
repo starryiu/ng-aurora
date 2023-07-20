@@ -31,6 +31,7 @@ import { StarryiuCoverComponent } from './components/starryiu-cover/starryiu-cov
 import { ArchiveCardComponent } from './components/archive-card/archive-card.component';
 import { GolbalLoadComponent } from './shared/components/golbal-load/golbal-load.component';
 import { StarryiuContentComponent } from './shared/components/starryiu-content/starryiu-content.component';
+import { HeaderProgressComponent } from './components/header-progress/header-progress.component';
 
 import { TimeagoPipe } from './pipes/timeago.pipe';
 import { PixivFormatPipe } from './pipes/pixiv-format.pipe';
@@ -39,7 +40,8 @@ import { IsEmptyPipe } from './pipes/is-empty.pipe';
 import { LabelsFormatPipe } from './pipes/labels-format.pipe';
 
 import { StarryiuRequestInterceptor } from './interceptor/starryiu-request.interceptor';
-import { HeaderProgressComponent } from './components/header-progress/header-progress.component';
+
+import { StarryiuCommentModule } from './components/starryiu-comment/starryiu-comment.module';
 @NgModule({
   declarations: [
     TimeagoPipe,
@@ -80,6 +82,7 @@ import { HeaderProgressComponent } from './components/header-progress/header-pro
     BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
+    StarryiuCommentModule,
   ],
   providers: [
     {
