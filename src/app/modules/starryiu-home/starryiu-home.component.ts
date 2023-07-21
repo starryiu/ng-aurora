@@ -6,7 +6,7 @@ import {
   QueryList,
   ViewChildren,
 } from '@angular/core';
-import { CalendarDot, Tag, BookmarkOne } from '@icon-park/svg';
+import { CalendarDot, Tag, BookmarkOne, Log } from '@icon-park/svg';
 import { UtilsService } from '../../shared/utils.service';
 import { ApiService } from '../../shared/api.service';
 import { HomeArticle } from '../../shared/type';
@@ -36,7 +36,18 @@ export class StarryiuHomeComponent implements OnInit, AfterViewInit, OnDestroy {
   loadArticles(page: number, limit: number) {
     this.pageLoading = true;
     this.apiService.getHomeArticles(page, limit).subscribe((articles) => {
-      this.articles = articles;
+      this.articles = articles.map((article) => {
+        let src = article.info.src;
+        if (
+          src.includes('s-bj-1658-tools.oss.dogecdn.com') ||
+          src.includes('starryiu/PicGo-jsDelivr/master/PicGo')
+        ) {
+          article.info.src =
+            'https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/' +
+            src.split('/').pop();
+        }
+        return article;
+      });
       this.pageLoading = false;
     });
   }

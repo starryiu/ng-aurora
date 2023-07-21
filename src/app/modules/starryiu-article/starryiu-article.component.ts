@@ -34,6 +34,16 @@ export class StarryiuArticleComponent
 
   ngOnInit(): void {
     this.route.data.subscribe((data: any) => {
+      const tmpArticle = data.article;
+      const src = tmpArticle.info.src;
+      if (
+        src.includes('s-bj-1658-tools.oss.dogecdn.com') ||
+        src.includes('starryiu/PicGo-jsDelivr/master/PicGo')
+      ) {
+        tmpArticle.info.src =
+          'https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/' +
+          src.split('/').pop();
+      }
       this.article = data?.article;
       //更改网站标题
       this.utilsService.changeSiteTitle(this.article.title);
