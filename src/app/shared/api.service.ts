@@ -158,7 +158,9 @@ export class ApiService {
         .subscribe((data: any) => {
           let datas = this.utilsService.formatPage(data[0], 'resource');
           observer.next(
-            datas.map((data: Resource) => Object.assign(data, { cover: '' }))
+            datas.map((data: Resource) =>
+              Object.assign({}, data, { cover: '' })
+            )
           );
           observer.complete();
         });
