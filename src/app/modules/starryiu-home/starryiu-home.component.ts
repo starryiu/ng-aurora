@@ -91,7 +91,13 @@ export class StarryiuHomeComponent implements OnInit, AfterViewInit, OnDestroy {
     });
     this.storeService.homePageIndex$.subscribe((value) => {
       this.pageIndex = value;
-      this.loadArticles(this.pageIndex, 10);
+      this.utilsService
+        .loadImage(
+          'https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/a6f2da1112160fefe5325be750e4510d---defaultCover.jpg'
+        )
+        .subscribe((res) => {
+          res.loadStatus && this.loadArticles(this.pageIndex, 10);
+        });
     });
     this.loadingCover = __config.images.loadingCover;
   }
