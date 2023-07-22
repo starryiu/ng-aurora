@@ -29,7 +29,7 @@
               "src/assets/font/font.scss",
               "src/assets/code.scss",
               "src/assets/article.scss",
-              "src/assets/google-font.scss"
+              "src/assets/swiper-bundle.min.css"
             ],
             "scripts": []
           },
@@ -43,8 +43,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "8kb",
+                  "maximumError": "15kb"
                 }
               ],
               "fileReplacements": [

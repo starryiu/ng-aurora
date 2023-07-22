@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import SwiperCore, { Autoplay, EffectFade, Lazy } from 'swiper';
 import __config from '../../../config';
 import { StoreService } from '../../shared/store.service';
@@ -10,7 +10,6 @@ SwiperCore.use([EffectFade, Autoplay, Lazy]);
   selector: 'app-starryiu-bg',
   templateUrl: './starryiu-bg.component.html',
   styleUrls: ['./starryiu-bg.component.scss'],
-  encapsulation: ViewEncapsulation.None,
 })
 export class StarryiuBgComponent implements OnInit {
   touhouImages: string[] = __config.images.bg.touhou;
