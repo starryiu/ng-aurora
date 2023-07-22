@@ -7,7 +7,7 @@
 @import "./assets/code.scss";
 @import "./assets/article.scss";
 
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300&display=swap");
+@import "./assets/google-font.scss";
 body {
   font-family: "Noto Sans SC", -apple-system, roboto, helvetica neue, sans-serif;
   @apply cursor-custom;
