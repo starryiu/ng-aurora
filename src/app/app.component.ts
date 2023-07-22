@@ -11,6 +11,7 @@ import __config from '../config';
 export class AppComponent implements AfterViewInit {
   constructor(private utilsService: UtilsService) {}
 
+  showSite = false;
   ngAfterViewInit(): void {
     this.utilsService.resetSiteTitle();
     this.utilsService.addMetaTag({
@@ -25,5 +26,9 @@ export class AppComponent implements AfterViewInit {
       name: 'keywords',
       content: __config.siteInfo.keywords,
     });
+
+    window.onload = () => {
+      this.showSite = true;
+    };
   }
 }
