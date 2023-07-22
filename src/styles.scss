@@ -3,11 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "./assets/font/font.scss";
-@import "./assets/code.scss";
-@import "./assets/article.scss";
-
-@import "./assets/google-font.scss";
 body {
   font-family: "Noto Sans SC", -apple-system, roboto, helvetica neue, sans-serif;
   @apply cursor-custom;

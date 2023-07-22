@@ -24,7 +24,13 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": ["src/_redirects", "src/assets"],
-            "styles": ["src/styles.scss"],
+            "styles": [
+              "src/styles.scss",
+              "src/assets/font/font.scss",
+              "src/assets/code.scss",
+              "src/assets/article.scss",
+              "src/assets/google-font.scss"
+            ],
             "scripts": []
           },
           "configurations": {
