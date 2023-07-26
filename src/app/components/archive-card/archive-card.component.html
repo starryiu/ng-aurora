@@ -7,7 +7,9 @@
     class="inline-flex flex-col w-full"
   >
     <div class="text-lg px-3 py-4">{{ archiveArticle.title }}</div>
-    <div class="text-sm px-3 py-3 border-t border-gray-200 space-x-3 flex">
+    <div
+      class="text-sm px-3 py-3 border-t border-gray-200 dark:border-gray-700 space-x-3 flex"
+    >
       <span>
         <span class="svg" [innerHTML]="calendarIcon"></span>
         {{ archiveArticle.created_at | timeago }}
