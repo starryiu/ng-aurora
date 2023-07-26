@@ -31,6 +31,15 @@ export class StarryiuAboutComponent implements OnInit {
     });
   }
 
+  changeModeTheme() {
+    if (localStorage['mode-theme'] !== 'dark') {
+      document.documentElement.classList.add('dark');
+      localStorage['mode-theme'] = 'dark';
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage['mode-theme'] = 'light';
+    }
+  }
   constructor(
     private utilsService: UtilsService,
     private apiService: ApiService

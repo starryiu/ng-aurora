@@ -26,12 +26,14 @@
       [title]="data.title"
     ></app-starryiu-segment>
     <div class="flex justify-center py-2">
-      <img
-        class="pointer-events-none select-none"
-        *ngFor="let image of countImages"
-        [src]="image"
-        alt=""
-      />
+      <span class="flex" (click)="changeModeTheme()">
+        <img
+          class="pointer-events-none select-none"
+          *ngFor="let image of countImages"
+          [src]="image"
+          alt=""
+        />
+      </span>
     </div>
   </div>
   <app-starryiu-comment></app-starryiu-comment>
