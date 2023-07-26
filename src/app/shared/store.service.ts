@@ -65,6 +65,14 @@ export class StoreService {
   changeClientTypeSource(value: string) {
     this.clientTypeSource.next(value);
   }
+  //主题模式
+  private modeThemeSource = new BehaviorSubject<string>(
+    localStorage['mode-theme'] ?? 'light'
+  );
+  modeTheme$ = this.modeThemeSource.asObservable();
+  changeModeThemeSource(value: string) {
+    this.modeThemeSource.next(value);
+  }
 
   constructor() {}
 }

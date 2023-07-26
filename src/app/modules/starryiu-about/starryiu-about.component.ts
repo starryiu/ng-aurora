@@ -4,6 +4,7 @@ import { Cat, Sleaves } from '@icon-park/svg';
 import { UtilsService } from '../../shared/utils.service';
 import { ApiService } from '../../shared/api.service';
 import { About } from '../../shared/type';
+import { StoreService } from 'src/app/shared/store.service';
 
 @Component({
   selector: 'app-starryiu-about',
@@ -35,14 +36,17 @@ export class StarryiuAboutComponent implements OnInit {
     if (localStorage['mode-theme'] !== 'dark') {
       document.documentElement.classList.add('dark');
       localStorage['mode-theme'] = 'dark';
+      this.storeService.changeModeThemeSource('dark');
     } else {
       document.documentElement.classList.remove('dark');
       localStorage['mode-theme'] = 'light';
+      this.storeService.changeModeThemeSource('light');
     }
   }
   constructor(
     private utilsService: UtilsService,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private storeService: StoreService
   ) {}
 
   ngOnInit(): void {

@@ -52,16 +52,16 @@ export class StarryiuPanelComponent implements OnInit {
 
   constructor(private storeService: StoreService) {}
 
-  modeTheme = localStorage['mode-theme'] ?? 'light';
+  modeTheme = '';
   changeModeTheme() {
     if (localStorage['mode-theme'] !== 'dark') {
       document.documentElement.classList.add('dark');
       localStorage['mode-theme'] = 'dark';
-      this.modeTheme = 'dark';
+      this.storeService.changeModeThemeSource('dark');
     } else {
       document.documentElement.classList.remove('dark');
       localStorage['mode-theme'] = 'light';
-      this.modeTheme = 'light';
+      this.storeService.changeModeThemeSource('light');
     }
   }
 
@@ -73,6 +73,10 @@ export class StarryiuPanelComponent implements OnInit {
 
     this.storeService.clientType$.subscribe((type) => {
       this.type = type;
+    });
+
+    this.storeService.modeTheme$.subscribe((value) => {
+      this.modeTheme = value;
     });
   }
 }

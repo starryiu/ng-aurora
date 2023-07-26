@@ -1,5 +1,6 @@
 <div class="comment-box">
   <giscus-widget
+    *ngIf="modeTheme === 'light'"
     id="comments"
     repo="starryiu/ng-aurora-comment"
     repoid="R_kgDOJ9kYwA"
@@ -11,6 +12,23 @@
     lang="zh-CN"
     inputposition="top"
     theme="https://fastly.jsdelivr.net/gh/starryiu/ng-aurora@master/src/assets/custom-giscus.css"
+    loading="lazy"
+    crossorigin="anonymous"
+    async
+  ></giscus-widget>
+  <giscus-widget
+    *ngIf="modeTheme === 'dark'"
+    id="comments"
+    repo="starryiu/ng-aurora-comment"
+    repoid="R_kgDOJ9kYwA"
+    category="Announcements"
+    categoryid="DIC_kwDOJ9kYwM4CYAS-"
+    mapping="url"
+    reactionsenabledd="1"
+    emitmetadata="0"
+    lang="zh-CN"
+    inputposition="top"
+    theme="https://fastly.jsdelivr.net/gh/starryiu/ng-aurora@master/src/assets/dark-giscus.css"
     loading="lazy"
     crossorigin="anonymous"
     async

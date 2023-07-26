@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import 'giscus';
+import { StoreService } from 'src/app/shared/store.service';
 
 @Component({
   selector: 'app-starryiu-comment',
@@ -8,6 +9,12 @@ import 'giscus';
   encapsulation: ViewEncapsulation.None,
 })
 export class StarryiuCommentComponent implements OnInit {
-  constructor() {}
-  ngOnInit(): void {}
+  constructor(private storeService: StoreService) {}
+
+  modeTheme = '';
+  ngOnInit(): void {
+    this.storeService.modeTheme$.subscribe((value) => {
+      this.modeTheme = value;
+    });
+  }
 }
