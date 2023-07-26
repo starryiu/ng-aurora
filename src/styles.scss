@@ -5,7 +5,7 @@
 
 body {
   font-family: "Noto Sans SC", -apple-system, roboto, helvetica neue, sans-serif;
-  @apply cursor-custom;
+  @apply cursor-custom s-md:bg-mobile-bg dark:s-md:bg-dark-bg2;
 }
 
 a,
