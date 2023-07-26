@@ -9,14 +9,5 @@ import 'giscus';
 })
 export class StarryiuCommentComponent implements OnInit {
   constructor() {}
-  theme = '';
-  ngOnInit(): void {
-    if (localStorage['mode-theme'] === 'light') {
-      this.theme =
-        'https://fastly.jsdelivr.net/gh/starryiu/ng-aurora@master/src/assets/custom-giscus.css';
-    } else {
-      this.theme =
-        'https://fastly.jsdelivr.net/gh/starryiu/ng-aurora@master/src/assets/dark-giscus.css';
-    }
-  }
+  ngOnInit(): void {}
 }
