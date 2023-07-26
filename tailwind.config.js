@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: "class",
   content: ["./src/**/*.{html,ts}"],
   theme: {
     extend: {
@@ -25,6 +26,11 @@ module.exports = {
         "panel-theme": "#5d3523",
         "panel-border": "#ffe4d8",
         "mobile-bg": "#f4f8fb",
+        "dark-text1": "#e5e7eb",
+        "dark-text2": "#d1d5db",
+        "dark-bg1": "#161618",
+        "dark-bg2": "#1e1e20",
+        "dark-bg3": "#18181a",
       },
       animation: { "spin-slow": "spin 3s linear infinite" },
       scale: {

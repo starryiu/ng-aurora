@@ -7,7 +7,7 @@
   />
   <div
     *ngIf="open"
-    class="fixed bg-white bg-opacity-40 w-full h-full left-0 top-0"
+    class="dark:bg-dark-bg1 dark:bg-opacity-40 fixed bg-white bg-opacity-40 w-full h-full left-0 top-0"
     @openFade
   ></div>
 
@@ -46,11 +46,11 @@
         </div>
       </div>
       <div
-        class="flex border-b rounded-t-xl border-panel-theme bg-panel-bg w-full h-12 justify-center items-center text-panel-theme text-xl"
+        class="dark:bg-dark-bg2 dark:text-dark-text1 flex border-b rounded-t-xl border-panel-theme bg-panel-bg w-full h-12 justify-center items-center text-panel-theme text-xl"
       >
         背景主题
       </div>
-      <div class="panel-content w-full bg-white flex p-4 pb-6">
+      <div class="dark:bg-dark-bg1 panel-content w-full bg-white flex p-4 pb-6">
         <div
           class="w-1/2 flex items-center flex-col"
           *ngFor="let theme of themeData"
@@ -80,20 +80,18 @@
         </div>
       </div>
 
-      <!--      <div class="text-lg bg-white flex justify-center items-center py-6">-->
-      <!--        已有&nbsp; <span class="text-purple-darkest">8</span> &nbsp;人点赞了哦！-->
-      <!--      </div>-->
       <div
-        class="flex rounded-b-xl relative border-t border-panel-theme bg-panel-bg w-full h-12 justify-center items-center text-panel-theme text-xl"
+        class="dark:bg-dark-bg2 flex rounded-b-xl relative border-t border-panel-theme bg-panel-bg w-full h-12 justify-center items-center text-panel-theme text-xl"
       >
-        <!--        <div-->
-        <!--          class="group overflow-hidden shadow-lg dianzan-btn absolute left-1/2 -translate-x-1/2 bg-purple top-1/2 cursor-custom-link text-white rounded-full flex justify-center items-center text-base"-->
-        <!--        >-->
-        <!--          <div-->
-        <!--            class="w-full absolute h-full bg-purple-darkest transition-all duration-300 -left-full top-0 group-hover:left-0 group-hover:rounded-30px"-->
-        <!--          ></div>-->
-        <!--                    <span class="relative z-10">谢谢点赞</span>-->
-        <!--        </div>-->
+        <div
+          class="dark:bg-purple-darkest group overflow-hidden shadow-lg dianzan-btn absolute left-1/2 -translate-x-1/2 bg-purple top-1/2 cursor-custom-link text-white rounded-full flex justify-center items-center text-base"
+          (click)="changeModeTheme()"
+        >
+          <div
+            class="dark:bg-purple w-full absolute h-full bg-purple-darkest transition-all duration-300 -left-full top-0 group-hover:left-0 group-hover:rounded-30px"
+          ></div>
+          <span class="relative z-10">当前主题：{{ modeTheme }}</span>
+        </div>
       </div>
     </div>
   </div>

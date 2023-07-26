@@ -54,11 +54,11 @@
   }
 
   table {
-    @apply w-full my-4 border-l border-b;
+    @apply w-full my-4 border-l border-b dark:border-dark-bg1;
     border-color: #f0f0f0;
     tr {
       background: #ffffff;
-      @apply w-full flex;
+      @apply w-full flex dark:bg-dark-bg2 dark:hover:bg-dark-bg1;
       &:hover {
         background: #fafafa;
       }
@@ -66,11 +66,10 @@
     td,
     th {
       border-color: #f0f0f0;
-
-      @apply p-0.5 border-r border-t flex-1 flex pl-4 items-center py-2;
+      @apply p-0.5 border-r border-t flex-1 flex pl-4 items-center py-2 dark:border-dark-bg1;
     }
     thead th {
-      @apply py-4;
+      @apply py-4 dark:bg-dark-bg1;
       background: #fafafa;
     }
   }
@@ -78,7 +77,7 @@
   /* 代码高亮 */
 
   pre {
-    @apply my-4 p-4 overflow-x-auto bg-white rounded border;
+    @apply my-4 p-4 overflow-x-auto bg-white rounded border dark:bg-dark-bg1 dark:border-dark-bg2;
     border-color: #f0f0f0;
     @media screen and (max-width: 876px) {
       @apply p-2;

@@ -21,7 +21,7 @@
     </div>
   </div>
   <div
-    class="player-content w-64 h-16 bg-white bg-opacity-80 flex flex-col pt-3 pb-2 px-4 justify-between"
+    class="dark:bg-dark-bg1 dark:bg-opacity-80 player-content w-64 h-16 bg-white bg-opacity-80 flex flex-col pt-3 pb-2 px-4 justify-between"
   >
     <div class="flex items-center">
       <div class="flex-1 truncate">
@@ -80,7 +80,7 @@
     class="player-list absolute w-80 left-0 origin-bottom ease-in bottom-full transition-all duration-300 rounded-t overflow-hidden -z-10"
   >
     <div
-      class="flex justify-between bg-white relative bg-opacity-80 cursor-custom-link text-xs items-center border-b border-gray-300 p-2 px-3 transition hover:bg-gray-100"
+      class="dark:bg-dark-bg1 dark:bg-opacity-80 flex justify-between bg-white relative bg-opacity-80 cursor-custom-link text-xs items-center border-b border-gray-300 p-2 px-3 transition hover:bg-gray-100"
       *ngFor="let item of musicList; let i = index"
       (click)="changeMusic(i)"
     >

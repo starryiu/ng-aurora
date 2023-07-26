@@ -2,7 +2,7 @@
   width: 160px;
   height: 40px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
-  @apply bg-white bg-opacity-75 relative transition duration-300;
+  @apply relative transition duration-300;
 }
 
 .rect {
@@ -11,7 +11,7 @@
   left: -7px;
   top: 7px;
   z-index: -1;
-  @apply border-2 border-white absolute transition duration-300;
+  @apply absolute transition duration-300;
 }
 
 .btn {

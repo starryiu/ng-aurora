@@ -21,15 +21,17 @@
       >
         <img class="w-full h-full object-cover" [src]="category.cover" alt="" />
 
-        <div class="absolute left-0 top-0 w-full h-full bg-white bg-opacity-75">
+        <div
+          class="dark:bg-dark-bg1 dark:bg-opacity-75 absolute left-0 top-0 w-full h-full bg-white bg-opacity-75"
+        >
           <div class="flex justify-between items-center p-6">
             <img
-              class="category-avatar border-4 border-white border-opacity-20 rounded-full overflow-hidden shadow"
+              class="dark:border-dark-bg1 dark:border-opacity-20 category-avatar border-4 border-white border-opacity-20 rounded-full overflow-hidden shadow"
               [src]="category.cover"
               alt=""
             />
             <div
-              class="bg-white bg-opacity-60 p-2 shadow-md rounded text-center text-sm"
+              class="dark:bg-dark-bg1 dark:bg-opacity-60 bg-white bg-opacity-60 p-2 shadow-md rounded text-center text-sm"
             >
               {{ category.title }} ({{ category.open_issues }})
             </div>

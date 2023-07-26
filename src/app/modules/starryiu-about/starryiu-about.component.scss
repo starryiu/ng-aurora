@@ -27,7 +27,7 @@
           border-radius: 5px;
           border: 2px solid;
           z-index: 5;
-          @apply border-purple-darkest shadow;
+          @apply border-purple-darkest shadow dark:bg-dark-bg1;
         }
         &::before {
           content: "";
@@ -38,6 +38,7 @@
           height: 500%;
           background: #f0f0f0;
           z-index: 0;
+          @apply dark:bg-dark-bg2;
         }
         &:nth-child(1)::before {
           content: "";
@@ -48,6 +49,7 @@
           height: 100%;
           background: white;
           z-index: 1;
+          @apply dark:bg-dark-bg1;
         }
         &:nth-child(n + 5)::before {
           content: "";
@@ -57,6 +59,7 @@
           width: 1.6px;
           height: 100%;
           background: white;
+          @apply dark:bg-dark-bg1;
         }
       }
     }

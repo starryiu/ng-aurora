@@ -4,7 +4,7 @@
   <div class="w-full" *ngFor="let nav of navs; let i = index">
     <a
       [routerLink]="nav.path"
-      class="flex flex-col items-center transition hover:text-purple-darkest s-md:text-white"
+      class="dark:text-dark-text2 dark:hover:text-purple-darkest flex flex-col items-center transition hover:text-purple-darkest s-md:text-white"
     >
       <span [innerHTML]="nav.icon" class="py-0.5"></span>
       {{ nav.name }}

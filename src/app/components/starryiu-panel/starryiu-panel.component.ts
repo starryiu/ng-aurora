@@ -52,6 +52,19 @@ export class StarryiuPanelComponent implements OnInit {
 
   constructor(private storeService: StoreService) {}
 
+  modeTheme = localStorage['mode-theme'] ?? 'light';
+  changeModeTheme() {
+    if (localStorage['mode-theme'] !== 'dark') {
+      document.documentElement.classList.add('dark');
+      localStorage['mode-theme'] = 'dark';
+      this.modeTheme = 'dark';
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage['mode-theme'] = 'light';
+      this.modeTheme = 'light';
+    }
+  }
+
   type!: string;
   ngOnInit(): void {
     this.storeService.themeSwiper$.subscribe((value) => {
