@@ -28,9 +28,9 @@ module.exports = {
         "mobile-bg": "#f4f8fb",
         "dark-text1": "#e5e7eb",
         "dark-text2": "#d1d5db",
-        "dark-bg1": "#18181a",
-        "dark-bg2": "#1e1e20",
-        "dark-bg3": "#202020",
+        "dark-bg1": "#010409",
+        "dark-bg2": "#0d1117",
+        "dark-bg3": "#1a1c1f",
       },
       animation: { "spin-slow": "spin 3s linear infinite" },
       scale: {
