@@ -40,7 +40,17 @@
           </span>
           <span>
             <span class="svg" [innerHTML]="tagIcon"></span>
-            {{ article.labels | labelsFormat }}
+            <span *ngIf="article.labels.length === 0; else noLableTel">
+              无标签
+            </span>
+            <ng-template #noLableTel>
+              <span
+                *ngFor="let label of article.labels; index as i"
+                class="mr-1.5"
+              >
+                {{ label.name }}
+              </span>
+            </ng-template>
           </span>
         </div>
       </a>

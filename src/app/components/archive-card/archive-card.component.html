@@ -20,7 +20,19 @@
       </span>
       <span>
         <span class="svg" [innerHTML]="tagIcon"></span>
-        {{ archiveArticle.labels | labelsFormat }}
+        <span *ngIf="archiveArticle.labels.length === 0; else noLableTel">
+          无标签
+        </span>
+        <ng-template #noLableTel>
+          <span
+            *ngFor="let label of archiveArticle.labels; index as i"
+            class="mr-1.5"
+          >
+            <span *ngIf="!(clientType === 'Mobile' && i !== 0)">
+              {{ label.name }}
+            </span>
+          </span>
+        </ng-template>
       </span>
     </div>
   </a>

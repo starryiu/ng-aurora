@@ -24,7 +24,6 @@ export class StarryiuBgComponent implements OnInit {
     this.storeService.clientType$.subscribe((type) => {
       this.clientType = type;
     });
-
     this.storeService.themeSwiper$.subscribe((value) => {
       this.theme = value;
     });
