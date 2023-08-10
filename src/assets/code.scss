@@ -20,6 +20,7 @@
       color: #b854d4;
       background-color: rgba(0, 0, 0, 0.1);
       word-wrap: break-word;
+      @apply dark:bg-purple-darkest  dark:text-dark-text2;
     }
   }
 
