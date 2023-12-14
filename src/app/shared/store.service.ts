@@ -29,6 +29,12 @@ export class StoreService {
   changeArchivePageIndexSource(value: number) {
     this.archivePageIndexSource.next(value);
   }
+  //essay 分页
+  private essayPageIndexSource = new BehaviorSubject<number>(1);
+  essayPageIndex$ = this.essayPageIndexSource.asObservable();
+  changeEssayPageIndexSource(value: number) {
+    this.essayPageIndexSource.next(value);
+  }
   //分类页面
   private categoryPageSource = new BehaviorSubject<CategoryPageType>({
     pageIndex: 1,

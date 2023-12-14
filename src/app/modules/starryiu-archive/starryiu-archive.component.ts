@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UtilsService } from '../../shared/utils.service';
 import { ApiService } from '../../shared/api.service';
 import { ArchiveArticle } from '../../shared/type';
 import { StoreService } from '../../shared/store.service';
@@ -38,7 +37,6 @@ export class StarryiuArchiveComponent implements OnInit {
   }
 
   constructor(
-    private utilsService: UtilsService,
     private apiService: ApiService,
     private storeService: StoreService
   ) {}

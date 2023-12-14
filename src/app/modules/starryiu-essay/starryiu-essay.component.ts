@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../shared/api.service';
 import { Essay } from '../../shared/type';
+import {StoreService} from "../../shared/store.service";
 
 @Component({
   selector: 'app-starryiu-essay',
@@ -17,22 +18,25 @@ export class StarryiuEssayComponent implements OnInit {
   pageTotal: number | undefined = undefined;
   pageLoading = false;
   changePage(page: number) {
-    this.pageIndex = page;
-    this.loadEssay(this.pageIndex, 10);
+    this.storeService.changeEssayPageIndexSource(page);
   }
 
   loadEssay(page: number, limit: number) {
     this.pageLoading = true;
-    this.apiService.getEssay(this.pageIndex, 10).subscribe((datas) => {
-      this.essay = datas;
+    this.apiService.getEssay(page, limit).subscribe((data) => {
+      this.essay = data;
       this.pageLoading = false;
     });
   }
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, private storeService: StoreService) {}
 
   ngOnInit(): void {
-    this.loadEssay(1, 10);
+    this.storeService.essayPageIndex$.subscribe((value) => {
+      this.pageIndex = value;
+      this.loadEssay(this.pageIndex, 10);
+    });
+
     this.apiService.getEssayCount().subscribe((count) => {
       this.pageTotal = count;
     });
