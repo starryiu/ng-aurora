@@ -27,7 +27,7 @@ export class StarryiuArchiveComponent implements OnInit {
       this.articles = articles.map((article) => {
         if (article.labels.length > 0) {
           article.labels = article.labels.filter(
-            (label: any) => label.name !== 'Archive'
+            (label: any) => label.name !== 'Archive',
           );
         }
         return article;
@@ -38,7 +38,7 @@ export class StarryiuArchiveComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private storeService: StoreService
+    private storeService: StoreService,
   ) {}
 
   ngOnInit(): void {
@@ -51,4 +51,6 @@ export class StarryiuArchiveComponent implements OnInit {
       this.pageTotal = articleCount as number;
     });
   }
+
+  protected readonly undefined = undefined;
 }

@@ -11,7 +11,6 @@ import { UtilsService } from '../../shared/utils.service';
 import { ApiService } from '../../shared/api.service';
 import { HomeArticle } from '../../shared/type';
 import { StoreService } from '../../shared/store.service';
-import __config from '../../../config';
 
 @Component({
   selector: 'app-starryiu-home',
@@ -75,7 +74,7 @@ export class StarryiuHomeComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   };
   observer: IntersectionObserver = new IntersectionObserver(
-    this.observerArticleCards
+    this.observerArticleCards,
   );
   ngAfterViewInit() {
     this.articleCards.changes.subscribe(() => {
@@ -92,10 +91,9 @@ export class StarryiuHomeComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     private utilsService: UtilsService,
     private apiService: ApiService,
-    private storeService: StoreService
+    private storeService: StoreService,
   ) {}
 
-  loadingCover = '';
   ngOnInit(): void {
     this.apiService.getOpenArticleCount().subscribe((articleCount) => {
       this.pageTotal = articleCount as number;
@@ -104,12 +102,11 @@ export class StarryiuHomeComponent implements OnInit, AfterViewInit, OnDestroy {
       this.pageIndex = value;
       this.utilsService
         .loadImage(
-          'https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/a6f2da1112160fefe5325be750e4510d---defaultCover.jpg'
+          'https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/a6f2da1112160fefe5325be750e4510d---defaultCover.jpg',
         )
         .subscribe((res) => {
           res.loadStatus && this.loadArticles(this.pageIndex, 10);
         });
     });
-    this.loadingCover = __config.images.loadingCover;
   }
 }

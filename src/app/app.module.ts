@@ -41,6 +41,7 @@ import { IsEmptyPipe } from './pipes/is-empty.pipe';
 import { StarryiuRequestInterceptor } from './interceptor/starryiu-request.interceptor';
 
 import { StarryiuCommentModule } from './components/starryiu-comment/starryiu-comment.module';
+import { AnimeLoadingComponent } from './components/anime-loading/anime-loading.component';
 @NgModule({
   declarations: [
     TimeagoPipe,
@@ -73,6 +74,7 @@ import { StarryiuCommentModule } from './components/starryiu-comment/starryiu-co
     GolbalLoadComponent,
     StarryiuContentComponent,
     HeaderProgressComponent,
+    AnimeLoadingComponent,
   ],
   imports: [
     BrowserModule,

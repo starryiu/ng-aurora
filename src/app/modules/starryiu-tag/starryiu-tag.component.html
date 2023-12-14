@@ -1,50 +1,56 @@
 <app-starryiu-content>
   <app-starryiu-quote></app-starryiu-quote>
-  <div class="px-4 text-xs">
-    <span
-      (click)="clearSelectLabel()"
-      *ngIf="articles | isEmpty"
-      class="inline-flex items-center bg-purple bg-opacity-60 px-2 py-1 text-white rounded-xl cursor-custom-link transition duration-300 hover:bg-opacity-100"
+  <div *ngIf="labels.length > 0; else starryiuLoading">
+    <div class="px-4 text-xs">
+      <span
+        (click)="clearSelectLabel()"
+        *ngIf="articles | isEmpty"
+        class="inline-flex items-center bg-purple bg-opacity-60 px-2 py-1 text-white rounded-xl cursor-custom-link transition duration-300 hover:bg-opacity-100"
+      >
+        <span [innerHTML]="closeIcon" class="mr-0.5"></span>
+        {{ selectLabel.name }}
+      </span>
+    </div>
+    <div
+      class="pb-8 flex flex-wrap justify-between"
+      [ngClass]="!(articles | isEmpty) ? 'pt-4 px-8 s-md:px-4' : ''"
     >
-      <span [innerHTML]="closeIcon" class="mr-0.5"></span>
-      {{ selectLabel.name }}
-    </span>
+      <ng-template [ngIf]="!(articles | isEmpty)" [ngIfElse]="articleList">
+        <div
+          [ngStyle]="{ color: '#' + label.color }"
+          class="dark:bg-dark-bg1 dark:bg-opacity-70 dark:hover:bg-opacity-25 bg-black bg-opacity-10 text-opacity-80 my-2 mx-3 s-md:mx-1 s-md:my-2 cursor-custom-link px-2.5 py-1 text-sm rounded transition duration-200 hover:bg-opacity-25"
+          *ngFor="let label of labels"
+          (click)="loadArticleByLabel(label); changeSelectLabel(label)"
+        >
+          {{ label.name }}
+        </div>
+      </ng-template>
+      <ng-template #articleList>
+        <div
+          class="flex justify-between flex-wrap p-4 w-full"
+          *ngIf="articles.length > 0"
+        >
+          <app-archive-card
+            class="w-49.2% s-md:w-full"
+            *ngFor="let article of articles; let i = index"
+            [archiveArticle]="article"
+          ></app-archive-card>
+        </div>
+        <div class="w-full">
+          <app-starryiu-pagination
+            *ngIf="pageTotal"
+            [pageIndex]="pageIndex"
+            [pageTotal]="pageTotal"
+            [pageLoading]="pageLoading"
+            (pageIndexChange)="changePage($event)"
+          ></app-starryiu-pagination>
+        </div>
+      </ng-template>
+    </div>
   </div>
-  <div
-    class="pb-8 flex flex-wrap justify-between"
-    *ngIf="labels.length > 0"
-    [ngClass]="!(articles | isEmpty) ? 'pt-4 px-8 s-md:px-4' : ''"
-  >
-    <ng-template [ngIf]="!(articles | isEmpty)" [ngIfElse]="articleList">
-      <div
-        [ngStyle]="{ color: '#' + label.color }"
-        class="dark:bg-dark-bg1 dark:bg-opacity-70 dark:hover:bg-opacity-25 bg-black bg-opacity-10 text-opacity-80 my-2 mx-3 s-md:mx-1 s-md:my-2 cursor-custom-link px-2.5 py-1 text-sm rounded transition duration-200 hover:bg-opacity-25"
-        *ngFor="let label of labels"
-        (click)="loadArticleByLabel(label); changeSelectLabel(label)"
-      >
-        {{ label.name }}
-      </div>
-    </ng-template>
-    <ng-template #articleList>
-      <div
-        class="flex justify-between flex-wrap p-4 w-full"
-        *ngIf="articles.length > 0"
-      >
-        <app-archive-card
-          class="w-49.2% s-md:w-full"
-          *ngFor="let article of articles; let i = index"
-          [archiveArticle]="article"
-        ></app-archive-card>
-      </div>
-      <div class="w-full">
-        <app-starryiu-pagination
-          *ngIf="pageTotal"
-          [pageIndex]="pageIndex"
-          [pageTotal]="pageTotal"
-          [pageLoading]="pageLoading"
-          (pageIndexChange)="changePage($event)"
-        ></app-starryiu-pagination>
-      </div>
-    </ng-template>
-  </div>
+  <ng-template #starryiuLoading>
+    <div class="s-md:py-6 py-16">
+      <app-anime-loading></app-anime-loading>
+    </div>
+  </ng-template>
 </app-starryiu-content>

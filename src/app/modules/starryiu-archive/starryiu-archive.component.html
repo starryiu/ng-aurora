@@ -1,17 +1,24 @@
 <app-starryiu-content>
   <app-starryiu-quote></app-starryiu-quote>
-  <div class="flex justify-between flex-wrap p-4" *ngIf="articles.length > 0">
-    <app-archive-card
-      class="w-49.2% s-md:w-full"
-      *ngFor="let article of articles; let i = index"
-      [archiveArticle]="article"
-    ></app-archive-card>
+  <div *ngIf="articles.length > 0; else starryiuLoading">
+    <div class="flex justify-between flex-wrap p-4">
+      <app-archive-card
+        class="w-49.2% s-md:w-full"
+        *ngFor="let article of articles; let i = index"
+        [archiveArticle]="article"
+      ></app-archive-card>
+    </div>
+    <app-starryiu-pagination
+      *ngIf="pageTotal"
+      [pageIndex]="pageIndex"
+      [pageTotal]="pageTotal"
+      [pageLoading]="pageLoading"
+      (pageIndexChange)="changePage($event)"
+    ></app-starryiu-pagination>
   </div>
-  <app-starryiu-pagination
-    *ngIf="pageTotal"
-    [pageIndex]="pageIndex"
-    [pageTotal]="pageTotal"
-    [pageLoading]="pageLoading"
-    (pageIndexChange)="changePage($event)"
-  ></app-starryiu-pagination>
+  <ng-template #starryiuLoading>
+    <div class="s-md:py-6 py-16">
+      <app-anime-loading></app-anime-loading>
+    </div>
+  </ng-template>
 </app-starryiu-content>
