@@ -1,12 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  OnDestroy,
-  OnInit,
-  QueryList,
-  ViewChildren,
-} from '@angular/core';
-import { CalendarDot, Tag, BookmarkOne } from '@icon-park/svg';
+import { Component, OnInit } from '@angular/core';
 import { UtilsService } from '../../shared/utils.service';
 import { ApiService } from '../../shared/api.service';
 import { HomeArticle } from '../../shared/type';
@@ -17,11 +9,7 @@ import { StoreService } from '../../shared/store.service';
   templateUrl: './starryiu-home.component.html',
   styleUrls: ['./starryiu-home.component.scss'],
 })
-export class StarryiuHomeComponent implements OnInit, AfterViewInit, OnDestroy {
-  calendarIcon = this.utilsService.getIconPark(CalendarDot({}));
-  tagIcon = this.utilsService.getIconPark(Tag({}));
-  bookmarkOneIcon = this.utilsService.getIconPark(BookmarkOne({}));
-
+export class StarryiuHomeComponent implements OnInit {
   /**
    * 首页分页
    */
@@ -49,43 +37,6 @@ export class StarryiuHomeComponent implements OnInit, AfterViewInit, OnDestroy {
       });
       this.pageLoading = false;
     });
-  }
-
-  /**
-   * 卡片监听
-   */
-  @ViewChildren('articleCards') articleCards!: QueryList<any>;
-  observerArticleCards = (entries: IntersectionObserverEntry[]) => {
-    entries.forEach((entry: IntersectionObserverEntry) => {
-      if (entry.intersectionRatio > 0) {
-        entry.target.classList.remove('duration-500');
-        entry.target.classList.remove('translate-y-14');
-        entry.target.classList.add('duration-700');
-        entry.target.classList.add('translate-y-0');
-      } else if (
-        entry.intersectionRatio === 0 &&
-        entry.boundingClientRect.top > 0
-      ) {
-        entry.target.classList.remove('duration-700');
-        entry.target.classList.remove('translate-y-0');
-        entry.target.classList.add('duration-500');
-        entry.target.classList.add('translate-y-14');
-      }
-    });
-  };
-  observer: IntersectionObserver = new IntersectionObserver(
-    this.observerArticleCards,
-  );
-  ngAfterViewInit() {
-    this.articleCards.changes.subscribe(() => {
-      this.observer.disconnect();
-      this.articleCards.map((articleCard) => {
-        this.observer.observe(articleCard.nativeElement);
-      });
-    });
-  }
-  ngOnDestroy(): void {
-    this.observer.disconnect();
   }
 
   constructor(

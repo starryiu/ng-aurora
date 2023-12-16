@@ -42,6 +42,7 @@ import { StarryiuRequestInterceptor } from './interceptor/starryiu-request.inter
 
 import { StarryiuCommentModule } from './components/starryiu-comment/starryiu-comment.module';
 import { AnimeLoadingComponent } from './components/anime-loading/anime-loading.component';
+import { ArticleCardComponent } from './components/article-card/article-card.component';
 @NgModule({
   declarations: [
     TimeagoPipe,
@@ -75,6 +76,7 @@ import { AnimeLoadingComponent } from './components/anime-loading/anime-loading.
     StarryiuContentComponent,
     HeaderProgressComponent,
     AnimeLoadingComponent,
+    ArticleCardComponent,
   ],
   imports: [
     BrowserModule,

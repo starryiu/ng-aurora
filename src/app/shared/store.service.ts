@@ -73,12 +73,37 @@ export class StoreService {
   }
   //主题模式
   private modeThemeSource = new BehaviorSubject<string>(
-    localStorage['mode-theme'] ?? 'light'
+    localStorage['mode-theme'] ?? 'light',
   );
   modeTheme$ = this.modeThemeSource.asObservable();
   changeModeThemeSource(value: string) {
     this.modeThemeSource.next(value);
   }
-
+  //文章卡片IntersectionObserver
+  observer: IntersectionObserver = new IntersectionObserver(
+    (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry: IntersectionObserverEntry) => {
+        if (entry.intersectionRatio > 0) {
+          entry.target.classList.remove('duration-500');
+          entry.target.classList.remove('translate-y-14');
+          entry.target.classList.add('duration-700');
+          entry.target.classList.add('translate-y-0');
+        } else if (
+          entry.intersectionRatio === 0 &&
+          entry.boundingClientRect.top > 0
+        ) {
+          entry.target.classList.remove('duration-700');
+          entry.target.classList.remove('translate-y-0');
+          entry.target.classList.add('duration-500');
+          entry.target.classList.add('translate-y-14');
+        }
+      });
+    },
+  );
+  private articleCardsIntersectionObserverSource = new BehaviorSubject(
+    this.observer,
+  );
+  articleCardsIntersectionObserver$ =
+    this.articleCardsIntersectionObserverSource.asObservable();
   constructor() {}
 }
