@@ -1,15 +1,15 @@
+:host{
+  @apply flex w-49.2% s-md:w-full mb-4;
+}
 .pixiv {
   font-size: 13px;
 }
-
 span:not(.pixiv) {
   @apply inline-flex items-center;
 }
-
 .svg {
   @apply w-4 inline mr-0.5;
 }
-
 .article-description {
   display: -webkit-box;
   -webkit-box-orient: vertical;

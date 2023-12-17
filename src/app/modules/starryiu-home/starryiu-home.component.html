@@ -3,9 +3,10 @@
     *ngIf="articles.length > 0; else starryiuLoading"
     class="flex flex-wrap justify-between"
   >
-    <div class="flex w-49.2% s-md:w-full mb-4" *ngFor="let article of articles">
-      <app-article-card [article]="article"></app-article-card>
-    </div>
+    <app-article-card
+      *ngFor="let article of articles"
+      [article]="article"
+    ></app-article-card>
     <div class="w-full" *ngIf="pageTotal">
       <app-starryiu-pagination
         [pageIndex]="pageIndex"
