@@ -22,7 +22,7 @@
     <div class="flex flex-wrap justify-between py-4">
       <div
         *ngFor="let friend of friends"
-        class="dark:bg-dark-bg1 dark:bg-opacity-30 friend-card group overflow-hidden h-28 s-md:h-24 cursor-custom-link shadow-md bg-white bg-opacity-30 mt-2 relative"
+        class="dark:bg-dark-bg1/30 friend-card group overflow-hidden h-28 s-md:h-24 cursor-custom-link shadow-md bg-white/30 mt-2 relative"
       >
         <a [href]="friend.link" target="_blank" class="flex w-full h-full">
           <img
@@ -32,7 +32,7 @@
             (error)="coverError($event)"
           />
           <div
-            class="dark:bg-dark-bg1 dark:bg-opacity-50 group-hover:-translate-y-28 transition duration-500 w-full h-full absolute left-0 top-0 bg-white bg-opacity-50"
+            class="dark:bg-dark-bg1/50 group-hover:-translate-y-28 transition duration-500 w-full h-full absolute left-0 top-0 bg-white/50"
           >
             <div
               class="relative z-10 flex flex-col items-center h-full justify-center"
@@ -46,7 +46,7 @@
               <span class="pt-1.5 text-base">{{ friend.name }}</span>
             </div>
             <div
-              class="dark:bg-dark-bg1 dark:bg-opacity-70 rect w-full h-1/2 absolute left-0 bottom-0 bg-white bg-opacity-70 shadow"
+              class="dark:bg-dark-bg1/70 rect w-full h-1/2 absolute left-0 bottom-0 bg-white/70 shadow"
             ></div>
           </div>
         </a>

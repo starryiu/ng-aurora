@@ -1,8 +1,6 @@
 <div
   [ngClass]="[
-    !transparent
-      ? 'bg-white bg-opacity-75 shadow-card dark:bg-dark-bg2 dark:bg-opacity-95 s-md:dark:bg-opacity-90'
-      : '',
+    !transparent ? 'bg-white/75 shadow-card dark:bg-dark-bg2/95' : '',
     loading ? '' : 'pb-4'
   ]"
   class="rounded w-full mx-auto"

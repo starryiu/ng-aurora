@@ -3,7 +3,7 @@
   <div class="pt-4 px-6 pb-8 flex flex-wrap justify-between">
     <div
       *ngFor="let resource of resources"
-      class="dark:bg-dark-bg1 resource-card p-3 mt-3 flex items-center shadow-md rounded bg-white bg-opacity-60 cursor-custom-link transition duration-300 hover:shadow-xl hover:-translate-y-1"
+      class="dark:bg-dark-bg1/60 resource-card p-3 mt-3 flex items-center shadow-md rounded bg-white/60 cursor-custom-link transition duration-300 hover:shadow-xl hover:-translate-y-1"
     >
       <a class="flex items-center" [href]="resource.link" target="_blank">
         <img
@@ -22,7 +22,7 @@
             *ngIf="resource.description.length > 15"
             class="absolute -translate-y-0.5 top-full left-0 text-white overflow-hidden transition-transform scale-0 duration-300 group-hover:scale-100"
           >
-            <div class="text-xs mt-2.5 bg-black rounded bg-opacity-60 p-1">
+            <div class="text-xs mt-2.5 bg-black/60 rounded p-1">
               {{ resource.description }}
             </div>
           </div>

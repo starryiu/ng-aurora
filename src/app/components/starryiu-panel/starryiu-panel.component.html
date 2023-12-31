@@ -7,7 +7,7 @@
   />
   <div
     *ngIf="open"
-    class="dark:bg-dark-bg1 dark:bg-opacity-40 fixed bg-white bg-opacity-40 w-full h-full left-0 top-0"
+    class="dark:bg-dark-bg1/40 fixed bg-white/40 w-full h-full left-0 top-0"
     @openFade
   ></div>
 
@@ -17,7 +17,7 @@
       class="fixed w-full h-full left-0 top-0 z-0"
     ></div>
     <div
-      class="panel-card relative z-10 shadow rounded-xl absolute left-1/2 top-44 -translate-x-1/2 -translate-y-1"
+      class="panel-card relative z-10 shadow rounded-xl left-1/2 top-44 -translate-x-1/2 -translate-y-1"
     >
       <div class="panel-decorate">
         <div class="circle w-full h-12 absolute left-0 top-0">
@@ -59,7 +59,7 @@
           <div class="text-lg">{{ theme.title }}</div>
           <div class="relative flex justify-center cursor-custom-link">
             <div
-              class="group relative w-full inline-flex justify-center w-52 h-28 my-4 items-center bg-gradient-to-b from-blue-200 to-purple-200"
+              class="group relative inline-flex justify-center w-52 h-28 my-4 items-center bg-gradient-to-b from-blue-200 to-purple-200"
             >
               <div
                 [ngClass]="

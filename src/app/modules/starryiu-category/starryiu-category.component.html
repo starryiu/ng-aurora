@@ -5,7 +5,7 @@
       <span
         (click)="clearSelectCategory()"
         *ngIf="articles | isEmpty"
-        class="inline-flex items-center bg-purple bg-opacity-60 px-2 py-1 text-white rounded-xl cursor-custom-link transition duration-300 hover:bg-opacity-100"
+        class="inline-flex items-center bg-purple/60 px-2 py-1 text-white rounded-xl cursor-custom-link transition duration-300 hover:bg-purple/100"
       >
         <span [innerHTML]="closeIcon" class="mr-0.5"></span>
         {{ selectCategory.title }}
@@ -27,7 +27,7 @@
           />
 
           <div
-            class="dark:bg-dark-bg1 dark:bg-opacity-75 absolute left-0 top-0 w-full h-full bg-white bg-opacity-75"
+            class="dark:bg-dark-bg1/75 absolute left-0 top-0 w-full h-full bg-white/75"
           >
             <div class="flex justify-between items-center p-6">
               <img
@@ -36,7 +36,7 @@
                 alt=""
               />
               <div
-                class="dark:bg-dark-bg1 dark:bg-opacity-60 bg-white bg-opacity-60 p-2 shadow-md rounded text-center text-sm"
+                class="dark:bg-dark-bg1/60 bg-white/60 p-2 shadow-md rounded text-center text-sm"
               >
                 {{ category.title }} ({{ category.open_issues }})
               </div>
