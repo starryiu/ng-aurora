@@ -22,6 +22,36 @@ export class AppComponent implements AfterViewInit {
     __config.images.sakura,
     __config.images.backTopCover,
   ];
+
+  private loadSiteFont = () => {
+    return new Promise<{ status: string; msg: string }>((resolve) => {
+      if (window.FontFace) {
+        const fontFile = new FontFace(
+          'CangErFeiBaiW02',
+          'url(assets/font/仓耳非白/仓耳非白W02.ttf)',
+        );
+        fontFile
+          .load()
+          .then(() => {
+            resolve({
+              status: 'success',
+              msg: '网站字体加载成功！！！',
+            });
+          })
+          .catch(() => {
+            resolve({
+              status: 'error',
+              msg: '网站标题字体加载失败',
+            });
+          });
+      } else {
+        resolve({
+          status: 'error',
+          msg: '浏览器不支持 FontFace',
+        });
+      }
+    });
+  };
   ngAfterViewInit(): void {
     this.utilsService.resetSiteTitle();
     this.utilsService.addMetaTag({
@@ -48,7 +78,7 @@ export class AppComponent implements AfterViewInit {
             if (
               value.every((imgStatus) => imgStatus.loadMessage === 'success')
             ) {
-              console.log('预加载图片成功!!!');
+              console.log('预加载图片成功！！！');
             } else {
               console.error('预加载图片失败');
             }
@@ -56,7 +86,9 @@ export class AppComponent implements AfterViewInit {
           error() {
             console.error('预加载图片失败，超时！');
           },
-          complete: () => {
+          complete: async () => {
+            const loadSiteFontResult = await this.loadSiteFont();
+            console.log(loadSiteFontResult.msg);
             this.showSite = true;
           },
         });
