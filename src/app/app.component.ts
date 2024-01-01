@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ViewEncapsulation } from '@angular/core';
-import { timeout, forkJoin } from 'rxjs';
+import { timeout, forkJoin, timer } from 'rxjs';
 import { UtilsService } from './shared/utils.service';
 import __config from '../config';
 
@@ -88,8 +88,10 @@ export class AppComponent implements AfterViewInit {
           },
           complete: async () => {
             const loadSiteFontResult = await this.loadSiteFont();
-            console.log(loadSiteFontResult.msg);
-            this.showSite = true;
+            timer(500).subscribe(() => {
+              console.log(loadSiteFontResult.msg);
+              this.showSite = true;
+            });
           },
         });
     };
