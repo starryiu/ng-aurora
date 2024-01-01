@@ -88,7 +88,7 @@ export class AppComponent implements AfterViewInit {
           },
           complete: async () => {
             const loadSiteFontResult = await this.loadSiteFont();
-            timer(500).subscribe(() => {
+            timer(100).subscribe(() => {
               console.log(loadSiteFontResult.msg);
               this.showSite = true;
             });
