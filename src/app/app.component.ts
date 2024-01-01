@@ -42,7 +42,7 @@ export class AppComponent implements AfterViewInit {
         this.utilsService.loadImage(previewImage),
       );
       forkJoin(preImages$)
-        .pipe(timeout(5000))
+        .pipe(timeout(8000))
         .subscribe({
           next(value) {
             if (
@@ -53,8 +53,8 @@ export class AppComponent implements AfterViewInit {
               console.error('预加载图片失败');
             }
           },
-          error(err) {
-            console.error('预加载图片失败');
+          error() {
+            console.error('预加载图片失败，超时！');
           },
           complete: () => {
             this.showSite = true;
