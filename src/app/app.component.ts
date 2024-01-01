@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { timeout, forkJoin } from 'rxjs';
 import { UtilsService } from './shared/utils.service';
 import __config from '../config';
@@ -9,7 +9,7 @@ import __config from '../config';
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements OnInit {
   constructor(private utilsService: UtilsService) {}
 
   showSite = false;
@@ -22,8 +22,39 @@ export class AppComponent implements AfterViewInit {
     __config.images.sakura,
     __config.images.backTopCover,
   ];
+  private loadSiteFont = () => {
+    return new Promise<{ status: string; msg: string }>((resolve) => {
+      if (window.FontFace) {
+        const fontFile = new FontFace(
+          'CangErFeiBaiW02',
+          'url(assets/font/仓耳非白/仓耳非白W02.ttf)',
+        );
+        fontFile
+          .load()
+          .then(() => {
+            resolve({
+              status: 'success',
+              msg: '网站字体加载成功！！！',
+            });
+          })
+          .catch(() => {
+            resolve({
+              status: 'error',
+              msg: '网站标题字体加载失败',
+            });
+          });
+      } else {
+        resolve({
+          status: 'error',
+          msg: '浏览器不支持 FontFace',
+        });
+      }
+    });
+  };
 
-  ngAfterViewInit(): void {
+  async ngOnInit() {
+    const loadSiteFontStatus = await this.loadSiteFont();
+    console.log(loadSiteFontStatus.msg);
     this.utilsService.resetSiteTitle();
     this.utilsService.addMetaTag({
       name: 'author',
