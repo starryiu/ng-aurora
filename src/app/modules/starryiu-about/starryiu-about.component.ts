@@ -1,11 +1,12 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { SafeHtml } from '@angular/platform-browser';
+import { forkJoin } from 'rxjs';
 import { Cat, Sleaves } from '@icon-park/svg';
 import { UtilsService } from '../../shared/utils.service';
 import { ApiService } from '../../shared/api.service';
 import { About } from '../../shared/type';
 import { StoreService } from 'src/app/shared/store.service';
-import { forkJoin } from 'rxjs';
+import __config from 'src/config';
 
 @Component({
   selector: 'app-starryiu-about',
@@ -14,6 +15,8 @@ import { forkJoin } from 'rxjs';
   encapsulation: ViewEncapsulation.None,
 })
 export class StarryiuAboutComponent implements OnInit {
+  protected readonly __config = __config;
+
   about: About[] = [];
   catIcon: SafeHtml = this.utilsService.getIconPark(
     Cat({ theme: 'outline', size: '1.1em' }),

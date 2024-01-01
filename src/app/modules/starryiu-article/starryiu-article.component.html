@@ -1,15 +1,7 @@
 <app-starryiu-content>
   <div *ngIf="article | isEmpty" class="relative">
     <div class="overflow-hidden relative rounded-t">
-      <img
-        src="https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/a6f2da1112160fefe5325be750e4510d---defaultCover.jpg"
-        alt=""
-      />
-      <img
-        class="w-full h-full absolute left-0 top-0 transition-transform duration-1000 object-cover hover:scale-105"
-        [src]="article.info.src"
-        alt=""
-      />
+      <app-starryiu-cover [imageUrl]="article.info.src"></app-starryiu-cover>
       <div
         class="dark:bg-dark-bg1/80 backdrop-blur bg-white/80 absolute md:h-20 left-0 w-full bottom-0 text-xl px-3 py-2 s-md:py-3 space-y-0.5 flex flex-col justify-around"
       >

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../shared/api.service';
 import { Friend } from '../../shared/type';
+import __config from '../../../config';
 
 @Component({
   selector: 'app-starryiu-friend',
@@ -19,11 +20,11 @@ export class StarryiuFriendComponent implements OnInit {
   }
 
   avatarError(e: any) {
-    e.target.src =
-      'https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/9e8fac15152ec6c1a6caace803203dd3.jpg';
+    e.target.src = __config.images.avatar;
   }
   coverError(e: any) {
-    e.target.src =
-      'https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/a6f2da1112160fefe5325be750e4510d---defaultCover.jpg';
+    e.target.src = __config.images.defaultCover;
   }
+
+  protected readonly __config = __config;
 }

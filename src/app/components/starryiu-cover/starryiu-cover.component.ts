@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { UtilsService } from '../../shared/utils.service';
+import __config from '../../../config';
 
 @Component({
   selector: 'app-starryiu-cover',
@@ -19,10 +20,10 @@ import { UtilsService } from '../../shared/utils.service';
 export class StarryiuCoverComponent implements OnInit {
   @Input() imageUrl: string = '';
   loadedImage = false;
-  defaultImageUrl =
-    'https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/a6f2da1112160fefe5325be750e4510d---defaultCover.jpg';
-
-  constructor(private utilsService: UtilsService) {}
+  defaultImageUrl = '';
+  constructor(private utilsService: UtilsService) {
+    this.defaultImageUrl = __config.images.defaultCover;
+  }
 
   ngOnInit(): void {
     //加载图片

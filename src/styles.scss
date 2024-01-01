@@ -15,7 +15,7 @@ img {
 
 body,
 a {
-  @apply text-gray antialiased dark:text-dark-text2;
+  @apply text-gray-900 antialiased dark:text-dark-text2;
 }
 
 ::selection {

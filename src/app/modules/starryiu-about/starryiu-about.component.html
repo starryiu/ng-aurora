@@ -1,10 +1,10 @@
 <app-starryiu-content>
   <app-starryiu-quote></app-starryiu-quote>
   <div class="p-4 main-page">
-    <div class="flex p-4">
+    <div class="flex p-4 mb-4">
       <img
         class="w-24 h-24 s-md:w-20 s-md:h-20 transition-transform hover:rotate-360 duration-1000 border-4 shadow-md border-white border-opacity-40 rounded-full"
-        src="https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/9e8fac15152ec6c1a6caace803203dd3.jpg"
+        [src]="__config.images.avatar"
         alt=""
       />
       <div class="text-sm flex items-center ml-4">
@@ -27,7 +27,7 @@
     ></app-starryiu-segment>
   </div>
   <app-starryiu-comment></app-starryiu-comment>
-  <div class="flex justify-center py-2 my-12" *ngIf="showCount">
+  <div class="flex justify-center py-14" *ngIf="showCount">
     <span class="flex" (click)="changeModeTheme()">
       <img
         class="pointer-events-none select-none"
