@@ -28,12 +28,18 @@ export default {
    * 图片链接
    */
   images: {
+    avatar:
+      'https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/9e8fac15152ec6c1a6caace803203dd3.jpg',
+    defaultCover:
+      'https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/a6f2da1112160fefe5325be750e4510d---defaultCover.jpg',
     loadingCover:
       'https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/51cbb77dbc64c6823c87e1b9e1135ef5---loading.gif',
     sakura:
-      'https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/98c59676e15f000efffde70659699895---sakura.pngg',
+      'https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/98c59676e15f000efffde70659699895---sakura.png',
     reimu:
       'https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/cca27d2bf700648c61d88385e7146174---reimu.png',
+    backTopCover:
+      'https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/45d26ab461e5612753308c3997f803e7---back-top.png',
     bg: {
       preview: {
         touhou:

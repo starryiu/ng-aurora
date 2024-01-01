@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import SwiperCore, { Autoplay, EffectFade, Lazy } from 'swiper';
-import { random as __random, random } from 'lodash';
+import { random as __random } from 'lodash-es';
 import __config from '../../../config';
 import { StoreService } from '../../shared/store.service';
 import { Theme } from '../../shared/type';

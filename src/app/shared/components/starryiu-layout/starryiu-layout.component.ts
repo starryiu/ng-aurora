@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ChildrenOutletContexts } from '@angular/router';
-import { throttle as __throttle } from 'lodash';
+import { throttle as __throttle } from 'lodash-es';
 import { routeFadeAnimation } from './animations';
 import { StoreService } from '../../store.service';
 
@@ -19,7 +19,7 @@ export class StarryiuLayoutComponent implements OnInit {
 
   constructor(
     private contexts: ChildrenOutletContexts,
-    private storeService: StoreService
+    private storeService: StoreService,
   ) {}
 
   watchWindowWidth = __throttle(() => {

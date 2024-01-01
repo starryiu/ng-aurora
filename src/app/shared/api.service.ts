@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { omit as __omit, pick as __pick, unionBy as __unionBy } from 'lodash';
+import {
+  omit as __omit,
+  pick as __pick,
+  unionBy as __unionBy,
+} from 'lodash-es';
 import { HttpClient } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
@@ -50,12 +54,12 @@ export class ApiService {
   getHomeArticles(
     page: number,
     limit: number,
-    state: string = 'open'
+    state: string = 'open',
   ): Observable<HomeArticle[]> {
     return new Observable((observer) => {
       this.http
         .get(
-          `${this.GITHUB_API}/issues?page=${page}&per_page=${limit}&state=${state}`
+          `${this.GITHUB_API}/issues?page=${page}&per_page=${limit}&state=${state}`,
         )
         .subscribe((datas: any) => {
           let formatDatas = datas.map((val: any) => {
@@ -83,12 +87,12 @@ export class ApiService {
   getArchiveArticles(
     page: number,
     limit: number,
-    state: string = 'closed'
+    state: string = 'closed',
   ): Observable<ArchiveArticle[]> {
     return new Observable((observer) => {
       this.http
         .get(
-          `${this.GITHUB_API}/issues?page=${page}&per_page=${limit}&state=${state}&labels=Archive`
+          `${this.GITHUB_API}/issues?page=${page}&per_page=${limit}&state=${state}&labels=Archive`,
         )
         .subscribe((datas: any) => {
           let formatDatas = datas.map((val: any) => {
@@ -123,7 +127,7 @@ export class ApiService {
           const description = o.description.split('\r\n');
           o.summary = description[0].split('summary:')[1];
           o.cover = this.sanitizer.bypassSecurityTrustUrl(
-            description[1].split('cover:')[1]
+            description[1].split('cover:')[1],
           );
           return o;
         });
@@ -140,7 +144,7 @@ export class ApiService {
         .subscribe((data: any) => {
           const formatData: any = __unionBy(
             data.map((article: any) => article.labels).flat(),
-            'name'
+            'name',
           );
           formatData.sort((a: any, b: any) => {
             return b.id - a.id;
@@ -159,8 +163,8 @@ export class ApiService {
           let datas = this.utilsService.formatPage(data[0], 'resource');
           observer.next(
             datas.map((data: Resource) =>
-              Object.assign({}, data, { cover: '' })
-            )
+              Object.assign({}, data, { cover: '' }),
+            ),
           );
           observer.complete();
         });
@@ -171,7 +175,7 @@ export class ApiService {
     return new Observable<number>((observer) => {
       this.http
         .get(
-          `${this.GITHUB_API}/issues?page=1&per_page=10000&state=closed&labels=Inspiration`
+          `${this.GITHUB_API}/issues?page=1&per_page=10000&state=closed&labels=Inspiration`,
         )
         .subscribe((essay: any) => {
           observer.next(essay.length);
@@ -183,11 +187,11 @@ export class ApiService {
     return new Observable<Essay[]>((observer) => {
       this.http
         .get(
-          `${this.GITHUB_API}/issues?page=${page}&per_page=${limit}&state=closed&labels=Inspiration`
+          `${this.GITHUB_API}/issues?page=${page}&per_page=${limit}&state=closed&labels=Inspiration`,
         )
         .subscribe((data: any) => {
           let formatData = data.map((o: any) =>
-            __pick(o, ['created_at', 'body'])
+            __pick(o, ['created_at', 'body']),
           );
           observer.next(formatData);
           observer.complete();
@@ -240,14 +244,14 @@ export class ApiService {
   //通过分类获取文章
   getArticlesByCategoryCount(categoryNumber: string) {
     return this.http.get(
-      `${this.GITHUB_API}/issues?milestone=${categoryNumber}&state=open`
+      `${this.GITHUB_API}/issues?milestone=${categoryNumber}&state=open`,
     );
   }
   getArticlesByCategory(categoryNumber: string, page: number, limit: number) {
     return new Observable<ArchiveArticle[]>((observer) => {
       this.http
         .get(
-          `${this.GITHUB_API}/issues?milestone=${categoryNumber}&page=${page}&per_page=${limit}&state=open`
+          `${this.GITHUB_API}/issues?milestone=${categoryNumber}&page=${page}&per_page=${limit}&state=open`,
         )
         .subscribe((datas: any) => {
           let formatDatas = datas.map((val: any) => {
@@ -263,14 +267,14 @@ export class ApiService {
   //通过标签获取文章
   getArticlesByLabelCount(labelName: string) {
     return this.http.get(
-      `${this.GITHUB_API}/issues?labels=${labelName}&state=open`
+      `${this.GITHUB_API}/issues?labels=${labelName}&state=open`,
     );
   }
   getArticlesByLabel(labelName: string, page: number, limit: number) {
     return new Observable<ArchiveArticle[]>((observer) => {
       this.http
         .get(
-          `${this.GITHUB_API}/issues?labels=${labelName}&page=${page}&per_page=${limit}&state=open`
+          `${this.GITHUB_API}/issues?labels=${labelName}&page=${page}&per_page=${limit}&state=open`,
         )
         .subscribe((datas: any) => {
           let formatDatas = datas.map((val: any) => {
@@ -287,6 +291,6 @@ export class ApiService {
   constructor(
     private utilsService: UtilsService,
     private http: HttpClient,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
   ) {}
 }

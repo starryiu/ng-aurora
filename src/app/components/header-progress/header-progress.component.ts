@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { StoreService } from '../../shared/store.service';
-import { throttle as __throttle } from 'lodash';
+import { throttle as __throttle } from 'lodash-es';
 
 @Component({
   selector: 'app-header-progress',
@@ -12,7 +12,7 @@ export class HeaderProgressComponent implements OnInit, OnDestroy {
     this.percent = Math.round(
       (Math.floor(window.scrollY) /
         (document.documentElement.offsetHeight - window.innerHeight)) *
-        100
+        100,
     );
   }, 300);
 

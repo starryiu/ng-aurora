@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { throttle as __throttle } from 'lodash';
+import { throttle as __throttle } from 'lodash-es';
 import { UtilsService } from '../../shared/utils.service';
 import { StoreService } from '../../shared/store.service';
 
@@ -24,7 +24,7 @@ export class StarryiuBacktopComponent implements OnInit {
 
   constructor(
     private utilsService: UtilsService,
-    private storeService: StoreService
+    private storeService: StoreService,
   ) {}
 
   type!: string;

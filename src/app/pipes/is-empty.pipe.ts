@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { isEmpty as __isEmpty } from 'lodash';
+import { isEmpty as __isEmpty } from 'lodash-es';
 
 @Pipe({
   name: 'isEmpty',

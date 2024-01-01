@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { sample as __sample } from 'lodash';
+import { sample as __sample } from 'lodash-es';
 import { Observable } from 'rxjs';
 import { ArticleInfo, LoadImageType } from './type';
 import __config from '../../config';
