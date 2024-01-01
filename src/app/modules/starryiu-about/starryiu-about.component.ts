@@ -5,6 +5,7 @@ import { UtilsService } from '../../shared/utils.service';
 import { ApiService } from '../../shared/api.service';
 import { About } from '../../shared/type';
 import { StoreService } from 'src/app/shared/store.service';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-starryiu-about',
@@ -13,22 +14,35 @@ import { StoreService } from 'src/app/shared/store.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class StarryiuAboutComponent implements OnInit {
-  countImages: string[] = [];
   about: About[] = [];
   catIcon: SafeHtml = this.utilsService.getIconPark(
-    Cat({ theme: 'outline', size: '1.1em' })
+    Cat({ theme: 'outline', size: '1.1em' }),
   );
   sleavesIcon: SafeHtml = this.utilsService.getIconPark(
-    Sleaves({ theme: 'outline' })
+    Sleaves({ theme: 'outline' }),
   );
 
+  countImages: string[] = [];
+  showCount = false;
   createMoeCount() {
     const days = Math.floor(
-      (Date.now() - Date.parse('2020/10/3 00:00')) / 86400000
+      (Date.now() - Date.parse('2020/10/3 00:00')) / 86400000,
     );
     this.countImages = this.utilsService.createImageSrc({
       number: days,
       theme: 'rule34',
+    });
+    const countImages$ = this.countImages.map((countImage) =>
+      this.utilsService.loadImage(countImage),
+    );
+    forkJoin(countImages$).subscribe({
+      next: (value) => {
+        if (value.every((imgStatus) => (imgStatus.loadMessage = 'success'))) {
+          this.showCount = true;
+        } else {
+          console.error('时间计时器图片加载失败');
+        }
+      },
     });
   }
 
@@ -46,7 +60,7 @@ export class StarryiuAboutComponent implements OnInit {
   constructor(
     private utilsService: UtilsService,
     private apiService: ApiService,
-    private storeService: StoreService
+    private storeService: StoreService,
   ) {}
 
   ngOnInit(): void {
