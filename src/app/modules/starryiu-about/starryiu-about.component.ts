@@ -18,7 +18,7 @@ export class StarryiuAboutComponent implements OnInit {
   catIcon: SafeHtml = this.utilsService.getIconPark(
     Cat({ theme: 'outline', size: '1.1em' }),
   );
-  sleavesIcon: SafeHtml = this.utilsService.getIconPark(
+  slavesIcon: SafeHtml = this.utilsService.getIconPark(
     Sleaves({ theme: 'outline' }),
   );
 
