@@ -28,6 +28,8 @@ export default {
    * 图片链接
    */
   images: {
+    mobileBg:
+      'https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/cc6d3bccdadf26e64f52318e942c757e---mobile.jpg',
     avatar:
       'https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/9e8fac15152ec6c1a6caace803203dd3.jpg',
     defaultCover:

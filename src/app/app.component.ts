@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
     __config.images.bg.preview.touhou,
     __config.images.sakura,
     __config.images.backTopCover,
+    __config.images.mobileBg,
   ];
 
   async ngOnInit() {

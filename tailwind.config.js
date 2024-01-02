@@ -1,3 +1,5 @@
+import __config from "./src/config";
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: "class",
@@ -55,8 +57,7 @@ module.exports = {
         md: { min: "878px" },
       },
       backgroundImage: {
-        "header-bg-mobile":
-          "url('https://fastly.jsdelivr.net/gh/starryiu/ng-aurora-picgo/main/cc6d3bccdadf26e64f52318e942c757e---mobile.jpg')",
+        "header-bg-mobile": `url('${__config.images.mobileBg}')`,
       },
       rotate: {
         360: "360deg",
