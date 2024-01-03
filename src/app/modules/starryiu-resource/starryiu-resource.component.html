@@ -1,9 +1,11 @@
 <app-starryiu-content>
   <app-starryiu-quote></app-starryiu-quote>
-  <div class="pt-4 px-6 pb-8 flex flex-wrap justify-between">
+  <div
+    class="pt-4 px-6 pb-8 grid grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-2 justify-between"
+  >
     <div
       *ngFor="let resource of resources"
-      class="dark:bg-dark-bg1/60 resource-card p-3 mt-3 flex items-center shadow-md rounded bg-white/60 cursor-custom-link transition duration-300 hover:shadow-xl hover:-translate-y-1"
+      class="dark:bg-dark-bg1/60 resource-card p-3 flex items-center shadow-md rounded bg-white/60 cursor-custom-link transition duration-300 hover:shadow-xl hover:-translate-y-1"
     >
       <a class="flex items-center" [href]="resource.link" target="_blank">
         <img

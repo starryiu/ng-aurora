@@ -60,4 +60,6 @@ export class StarryiuHomeComponent implements OnInit {
         });
     });
   }
+
+  protected readonly undefined = undefined;
 }
