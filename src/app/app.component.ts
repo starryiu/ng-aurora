@@ -1,4 +1,9 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnInit,
+  ViewEncapsulation,
+} from '@angular/core';
 import { timeout, forkJoin } from 'rxjs';
 import { UtilsService } from './shared/utils.service';
 import __config from '../config';
@@ -9,8 +14,15 @@ import __config from '../config';
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   constructor(private utilsService: UtilsService) {}
+
+  ngAfterViewInit(): void {
+    // @ts-ignore
+    import('/src/assets/aos/aos@3.0.0-beta.6.js').then((AOS) => {
+      AOS && AOS.init();
+    });
+  }
 
   showSite = false;
   private readonly previewImages = [
