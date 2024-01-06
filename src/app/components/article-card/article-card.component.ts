@@ -1,10 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  Input,
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { BookmarkOne, CalendarDot, Tag } from '@icon-park/svg';
 import { UtilsService } from '../../shared/utils.service';
 import { HomeArticle } from '../../shared/type';
@@ -14,7 +8,7 @@ import { HomeArticle } from '../../shared/type';
   templateUrl: './article-card.component.html',
   styleUrls: ['./article-card.component.scss'],
 })
-export class ArticleCardComponent implements OnInit, AfterViewInit, OnDestroy {
+export class ArticleCardComponent implements OnInit {
   @Input() article!: HomeArticle;
 
   calendarIcon = this.utilsService.getIconPark(CalendarDot({}));
@@ -23,7 +17,4 @@ export class ArticleCardComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(private utilsService: UtilsService) {}
 
   ngOnInit(): void {}
-
-  ngAfterViewInit() {}
-  ngOnDestroy() {}
 }

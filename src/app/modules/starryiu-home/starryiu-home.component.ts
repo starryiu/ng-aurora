@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { UtilsService } from '../../shared/utils.service';
 import { ApiService } from '../../shared/api.service';
 import { HomeArticle } from '../../shared/type';
@@ -9,7 +9,12 @@ import { StoreService } from '../../shared/store.service';
   templateUrl: './starryiu-home.component.html',
   styleUrls: ['./starryiu-home.component.scss'],
 })
-export class StarryiuHomeComponent implements OnInit {
+export class StarryiuHomeComponent implements OnInit, AfterViewInit {
+  ngAfterViewInit(): void {
+    //@ts-ignore
+    AOS.init();
+  }
+
   /**
    * 首页分页
    */
