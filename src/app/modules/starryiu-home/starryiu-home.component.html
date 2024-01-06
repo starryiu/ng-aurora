@@ -1,5 +1,5 @@
 <app-starryiu-content [transparent]="true">
-  <div *ngIf="articles.length > 0; else starryiuLoading">
+  <div *ngIf="articles.length > 0 && pageTotal; else starryiuLoading">
     <div
       class="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-3 justify-between mb-4"
     >
@@ -8,14 +8,12 @@
         [article]="article"
       ></app-article-card>
     </div>
-    <div class="w-full" *ngIf="pageTotal">
-      <app-starryiu-pagination
-        [pageIndex]="pageIndex"
-        [pageTotal]="pageTotal"
-        [pageLoading]="pageLoading"
-        (pageIndexChange)="changePage($event)"
-      ></app-starryiu-pagination>
-    </div>
+    <app-starryiu-pagination
+      [pageIndex]="pageIndex"
+      [pageTotal]="pageTotal"
+      [pageLoading]="pageLoading"
+      (pageIndexChange)="changePage($event)"
+    ></app-starryiu-pagination>
   </div>
   <ng-template #starryiuLoading>
     <app-anime-loading></app-anime-loading>
