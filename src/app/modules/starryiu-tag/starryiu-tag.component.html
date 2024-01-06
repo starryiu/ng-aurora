@@ -18,7 +18,7 @@
       <ng-template [ngIf]="!(articles | isEmpty)" [ngIfElse]="articleList">
         <div
           [ngStyle]="{ color: '#' + label.color }"
-          class="dark:bg-dark-bg1/70 dark:hover:bg-dark-bg1/25 bg-black/10 hover:bg-bg-black/25 text-opacity-80 my-2 mx-3 s-md:mx-1 s-md:my-2 cursor-custom-link px-2.5 py-1 text-sm rounded transition duration-200"
+          class="dark:bg-dark-bg1/70 dark:hover:bg-dark-bg1/25 bg-black/10 hover:bg-black/40 text-opacity-80 my-2 mx-3 s-md:mx-1 s-md:my-2 cursor-custom-link px-2.5 py-1 text-sm rounded transition duration-200"
           *ngFor="let label of labels"
           (click)="loadArticleByLabel(label); changeSelectLabel(label)"
         >
