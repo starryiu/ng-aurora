@@ -5,6 +5,7 @@ import {
   OnInit,
   ViewChild,
   ElementRef,
+  AfterViewInit,
 } from '@angular/core';
 import { UtilsService } from '../../shared/utils.service';
 
@@ -14,7 +15,7 @@ import { UtilsService } from '../../shared/utils.service';
   styleUrls: ['./starryiu-segment.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class StarryiuSegmentComponent implements OnInit {
+export class StarryiuSegmentComponent implements OnInit, AfterViewInit {
   @Input() body: string = '';
   @Input() title: string | null = '';
 
@@ -38,7 +39,7 @@ export class StarryiuSegmentComponent implements OnInit {
     [...articleImages].map((articleImage: any) => {
       const articleImageRef = articleImage.querySelector('.article-image');
       const articleImageLoadingRef = articleImage.querySelector(
-        '.article-image-loading'
+        '.article-image-loading',
       );
       this.utilsService.loadImage(articleImageRef.src).subscribe((res) => {
         if (res.loadStatus) {

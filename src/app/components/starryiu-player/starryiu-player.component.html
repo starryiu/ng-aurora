@@ -80,7 +80,7 @@
     class="player-list absolute w-80 left-0 origin-bottom ease-in bottom-full transition-all duration-300 rounded-t overflow-hidden -z-10"
   >
     <div
-      class="dark:bg-dark-bg1/80 flex justify-between bg-white/80 relative cursor-custom-link text-xs items-center border-b border-gray-300 p-2 px-3 transition hover:bg-gray-100"
+      class="dark:bg-dark-bg1/80 dark:hover:bg-dark-bg1 flex justify-between bg-white/80 relative cursor-custom-link text-xs items-center border-b border-gray-300 hover:bg-gray-100 p-2 px-3 transition"
       *ngFor="let item of musicList; let i = index"
       (click)="changeMusic(i)"
     >
